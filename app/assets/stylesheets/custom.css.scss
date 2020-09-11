@@ -6,44 +6,6 @@ $gray: #acafb4;
 $green: #22C65B;
 $grey: #313944;
 
-
-.bg_primary-color {
-  background-color: #FFFFFF;
-}
-.primary-color {
-  background-color: #FFFFFF;
-}
-.bg_secondary-color {
-  background-color: #293241;
-}
-.secondary-color {
-  color: #293241;
-}
-.custom-button.btn {
-  background-color: #293241;
-  color: #FFF;
-  border: none;
-}
-.custom-button.btn:hover {
-  color: #FFF !important;
-  border: none;
-}
-.hero {
-  width: 100vw;
-  height: 50vh;
-}
-.hero img {
-  object-fit: cover;
-  object-position: top;
-  height: 100%;
-  width: 100%;
-}
-.overlay {
-  height: 100%;
-  width: 100%;
-  opacity: 0.4;
-}
-
 .bg-blue {
   background-color: $blue;
 }
@@ -51,7 +13,6 @@ $grey: #313944;
 .bg-grey {
   background-color: $grey;
 }
-
 
 nav {
   h1 {
@@ -74,17 +35,36 @@ nav {
   height: 50px;
 }
 
-.foot-col {
+.nav-pills
+.nav-link.active,
+.nav-pills
+.show > .nav-link {
+	color: #fff;
+	background-color: $blue !important;
+}
+
+.tablist {
+  .col {
+    padding-left: unset;
+    padding-right: unset;
+  }
+}
+
+.nav-pills .nav-link {
+  border-radius: 0 !important;
+  color: $gray;
   i {
-    color: $gray;
     font-size: 1.5em;
-    line-height: 1.7;
+    line-height: 1.3;
   }
   p {
-    color: $gray;
-    font-size: 12px;
-    line-height: 1px;
+    font-size: 13px;
+    line-height: 17px;
   }
+}
+
+.nav-link {
+  padding: 0 !important;
 }
 
 .sign-in-up .left-inner-addon {
@@ -126,14 +106,14 @@ nav {
   margin: 0;
   font-weight: bold;
 }
-.btn-danger, .btn-danger:hover{
+.btn-danger, .btn-danger:hover {
   background-color: $green;
   border-color: $green;
 }
-.btn-primary, .btn-primary:hover{
+.btn-primary, .btn-primary:hover {
   background-color: $blue;
   border-color: $blue;
 }
-  input[type="text"], input[type="password"], .btn{
+  input[type="text"], input[type="password"], .btn {
   border-radius: 0px;
 }
