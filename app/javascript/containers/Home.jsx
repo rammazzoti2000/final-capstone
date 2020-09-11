@@ -47,19 +47,19 @@ export default () => (
         <div className="container text-center">
           <div className="row">
             <div className="col foot-col">
-              <i className="fas fa-chart-bar"></i>
+              <i className="fas fa-chart-bar" />
               <p>Add Readings</p>
             </div>
             <div className="col foot-col">
-              <i className="fas fa-chart-line"></i>
+              <i className="fas fa-chart-line" />
               <p>Track.it</p>
             </div>
             <div className="col foot-col">
-              <i className="fas fa-chart-pie"></i>
+              <i className="fas fa-chart-pie" />
               <p>Report</p>
             </div>
             <div className="col foot-col">
-              <i className="fas fa-ellipsis-h"></i>
+              <i className="fas fa-ellipsis-h" />
               <p>More</p>
             </div>
           </div>
