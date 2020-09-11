@@ -5,5 +5,4 @@ class HomepageControllerTest < ActionDispatch::IntegrationTest
     get homepage_index_url
     assert_response :success
   end
-
 end

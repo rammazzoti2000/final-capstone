@@ -10,10 +10,12 @@ const Signup = () => (
           <div className="btn-group">
             <a href="#new" role="tab" data-toggle="tab" className="big btn btn-primary">
               <i className="fa fa-plus" />
+              {' '}
               Create Account
             </a>
             <a href="#user" role="tab" data-toggle="tab" className="big btn btn-success">
               <i className="fa fa-user" />
+              {' '}
               Login
             </a>
           </div>
@@ -67,6 +69,7 @@ const Signup = () => (
               <div className="tab-pane active text-center" id="pp">
                 <button type="button" className="btn btn-primary btn-lg btn-block">
                   <i className="fa fa-plus" />
+                  {' '}
                   Create Account
                 </button>
               </div>
@@ -92,6 +95,7 @@ const Signup = () => (
             <div className=" text-center">
               <button type="button" className="btn btn-primary btn-success">
                 <i className="fa fa-user" />
+                {' '}
                 LOGIN
               </button>
             </div>
