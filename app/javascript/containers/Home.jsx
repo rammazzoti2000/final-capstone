@@ -2,12 +2,12 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 
+import Head from '../components/Head';
+
 export default () => (
   <div>
     <div>
-      <nav className="navbar navbar-inverse bg-blue fixed-top">
-        <h1 className="navbar-brand abs" href="#">Home</h1>
-      </nav>
+      <Head />
 
       <div className="container text-content sign-in-up">
         <div className="row justify-content-center">
