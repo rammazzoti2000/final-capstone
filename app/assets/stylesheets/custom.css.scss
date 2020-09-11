@@ -2,8 +2,10 @@
 @import "font-awesome";
 
 $blue: #42B5E8;
-$grey: #313944;
 $gray: #acafb4;
+$green: #22C65B;
+$grey: #313944;
+
 
 .bg_primary-color {
   background-color: #FFFFFF;
@@ -67,10 +69,6 @@ nav {
   margin-top: 70px;
 }
 
-body {
-  height:1500px;
-}
-
 #sticky-footer {
   flex-shrink: none;
   height: 50px;
@@ -87,4 +85,55 @@ body {
     font-size: 12px;
     line-height: 1px;
   }
+}
+
+.sign-in-up .left-inner-addon {
+  position: relative;
+}
+
+.sign-in-up .left-inner-addon input {
+  padding-left: 30px;
+}
+
+.sign-in-up .left-inner-addon i {
+  position: absolute;
+  padding: 10px 12px;
+  pointer-events: none;
+}
+
+.sign-in-up .right-inner-addon {
+  position: relative;
+}
+
+.sign-in-up .right-inner-addon input {
+  padding-right: 30px;
+}
+
+.sign-in-up .right-inner-addon i {
+  position: absolute;
+  right: 0px;
+  padding: 17px 12px;
+  pointer-events: none;
+}
+
+.sign-in-up .click2select {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.sign-in-up .paywith {
+  padding: 12px 12px 0 0;
+  margin: 0;
+  font-weight: bold;
+}
+.btn-danger, .btn-danger:hover{
+  background-color: $green;
+  border-color: $green;
+}
+.btn-primary, .btn-primary:hover{
+  background-color: $blue;
+  border-color: $blue;
+}
+  input[type="text"], input[type="password"], .btn{
+  border-radius: 0px;
 }
