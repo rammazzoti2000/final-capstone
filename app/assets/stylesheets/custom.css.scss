@@ -1,0 +1,90 @@
+@import 'bootstrap/dist/css/bootstrap';
+@import "font-awesome";
+
+$blue: #42B5E8;
+$grey: #313944;
+$gray: #acafb4;
+
+.bg_primary-color {
+  background-color: #FFFFFF;
+}
+.primary-color {
+  background-color: #FFFFFF;
+}
+.bg_secondary-color {
+  background-color: #293241;
+}
+.secondary-color {
+  color: #293241;
+}
+.custom-button.btn {
+  background-color: #293241;
+  color: #FFF;
+  border: none;
+}
+.custom-button.btn:hover {
+  color: #FFF !important;
+  border: none;
+}
+.hero {
+  width: 100vw;
+  height: 50vh;
+}
+.hero img {
+  object-fit: cover;
+  object-position: top;
+  height: 100%;
+  width: 100%;
+}
+.overlay {
+  height: 100%;
+  width: 100%;
+  opacity: 0.4;
+}
+
+.bg-blue {
+  background-color: $blue;
+}
+
+.bg-grey {
+  background-color: $grey;
+}
+
+
+nav {
+  h1 {
+    color: white;
+    font-weight: 600;
+  }
+}
+
+.navbar-brand.abs {
+  text-align: center;
+  width: 100%;
+}
+
+.text-content {
+  margin-top: 70px;
+}
+
+body {
+  height:1500px;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+  height: 50px;
+}
+
+.foot-col {
+  i {
+    color: $gray;
+    font-size: 1.5em;
+    line-height: 1.7;
+  }
+  p {
+    color: $gray;
+    font-size: 12px;
+    line-height: 1px;
+  }
+}

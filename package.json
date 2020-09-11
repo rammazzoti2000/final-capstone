@@ -3,11 +3,19 @@
   "private": true,
   "dependencies": {
     "@babel/preset-react": "^7.10.4",
+    "@fortawesome/fontawesome-free": "^5.14.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
+    "@fortawesome/react-fontawesome": "^0.1.11",
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "bootstrap": "^4.5.2",
+    "heroku": "^7.42.13",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -15,7 +23,8 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
     "redux-localstorage": "^0.4.1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "webpack": "^4.44.1"
   },
   "version": "0.1.0",
   "devDependencies": {
