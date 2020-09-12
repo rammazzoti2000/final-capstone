@@ -44,24 +44,58 @@ class Signup extends React.Component {
                 <fieldset>
                   <div className="form-group">
                     <div className="right-inner-addon">
-                      <i className="fa fa-envelope" />
-                      <input className="form-control input-lg" placeholder="Email" type="text" />
+                      <i className="fa fa-user" />
+                      <input
+                        className="form-control input-lg"
+                        placeholder="Name"
+                        type="text"
+                        id="name"
+                        value={name}
+                      />
+                    </div>
+                  </div>
+                  <div className="form-group">
+                    <div className="right-inner-addon">
+                      <i className="fa fa-envelop" />
+                      <input
+                        className="form-control input-lg"
+                        placeholder="Email"
+                        type="text"
+                        id="email"
+                        value={email}
+                      />
                     </div>
                   </div>
                   <div className="form-group">
                     <div className="right-inner-addon">
                       <i className="fa fa-key" />
-                      <input className="form-control input-lg" placeholder="Password" type="password" />
+                      <input
+                        className="form-control input-lg"
+                        placeholder="Password"
+                        type="password"
+                        id="password"
+                        value={password}
+                      />
                     </div>
                   </div>
                   <div className="form-group">
                     <div className="right-inner-addon">
                       <i className="fa fa-key" />
-                      <input className="form-control input-lg" placeholder="Confirm Password" id="" type="password" />
+                      <input
+                        className="form-control input-lg"
+                        placeholder="Confirm Password"
+                        type="password"
+                        id="password"
+                        value={password}
+                      />
                     </div>
                   </div>
                   <div className="form-group">
-                    <select className="custom-select custom-select-md">
+                    <select
+                      className="custom-select custom-select-md"
+                      id="units"
+                      value={units}
+                    >
                       <option selected>Choose monthly units</option>
                       <option value="1800">1800</option>
                       <option value="2100">2100</option>
@@ -71,7 +105,11 @@ class Signup extends React.Component {
                     </select>
                   </div>
                   <div className="form-group">
-                    <select className="custom-select custom-select-md">
+                    <select
+                      className="custom-select custom-select-md"
+                      id="target"
+                      value={target}
+                    >
                       <option selected>Choose month target savings</option>
                       <option value="5">5%</option>
                       <option value="10">10%</option>
