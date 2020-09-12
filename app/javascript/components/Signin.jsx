@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class Signin extends React.Component {
   constructor(props) {
@@ -9,6 +10,34 @@ class Signin extends React.Component {
       errors: {},
       success: true,
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const { email, password } = this.state;
+
+    axios.post('api/users/sessions', {
+      email, password,
+    })
+      .then(response => response.data)
+      .then(response => {
+        if (response.code === 200) {
+          this.props.login(response.user.name);
+          // this.props.history.push("/readings")
+        } else if (response.code === 400) {
+          this.setState({
+            errors: response.errors,
+          });
+        }
+      });
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
   }
 
   render() {
@@ -28,6 +57,7 @@ class Signin extends React.Component {
                 type="text"
                 id="email"
                 value={email}
+                onChange={e => this.handleChange(e)}
               />
             </div>
           </div>
@@ -40,13 +70,18 @@ class Signin extends React.Component {
                 type="password"
                 id="password"
                 value={password}
+                onChange={e => this.handleChange(e)}
               />
             </div>
           </div>
         </fieldset>
         <br />
         <div className=" text-center">
-          <button type="button" className="btn btn-primary btn-success">
+          <button
+            type="button"
+            className="btn btn-primary btn-success"
+            onClick={e => this.onSubmit(e)}
+          >
             <i className="fa fa-user" />
             {' '}
             LOGIN
