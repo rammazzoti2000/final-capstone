@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Signin from './Signin';
 
 class Signup extends React.Component {
@@ -10,6 +11,7 @@ class Signup extends React.Component {
       password: '',
       units: '',
       target: '',
+      errors: {},
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -17,9 +19,31 @@ class Signup extends React.Component {
 
   onSubmit(e) {
     e.preventDefault();
-    const {
+    let {
       name, email, password, units, target,
     } = this.state;
+
+    axios.post('/api/users', {
+      name, email, password, units, target,
+    })
+      .then(response => response.data)
+      .then(response => {
+        if (response.code === 400) {
+          console.log(response);
+          this.setState({
+            errors: response.errors,
+          });
+        } else if (response.code === 200) {
+          this.setState({
+            name: '',
+            email: '',
+            password: '',
+            units: '',
+            target: '',
+            errors: {},
+          });
+        }
+      });
   }
 
   handleChange(e) {
