@@ -29,7 +29,7 @@ class Signup extends React.Component {
       .then(response => response.data)
       .then(response => {
         if (response.code === 400) {
-          console.log(response);
+          console.log(response.errors);
           this.setState({
             errors: response.errors,
           });

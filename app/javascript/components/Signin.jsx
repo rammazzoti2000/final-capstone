@@ -12,6 +12,9 @@ class Signin extends React.Component {
   }
 
   render() {
+    const {
+      email, password, errors, success
+    } = this.state;
     return (
       <div className="tab-pane fade" id="user">
         <br />
@@ -19,13 +22,25 @@ class Signin extends React.Component {
           <div className="form-group">
             <div className="right-inner-addon">
               <i className="fa fa-envelope" />
-              <input className="form-control input-lg" placeholder="Email" type="text" />
+              <input
+                className="form-control input-lg"
+                placeholder="Email"
+                type="text"
+                id="email"
+                value={email}
+              />
             </div>
           </div>
           <div className="form-group">
             <div className="right-inner-addon">
               <i className="fa fa-key" />
-              <input className="form-control input-lg" placeholder="Password" type="password" />
+              <input
+                className="form-control input-lg"
+                placeholder="Password"
+                type="password"
+                id="password"
+                value={password}
+              />
             </div>
           </div>
         </fieldset>
