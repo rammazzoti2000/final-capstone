@@ -11,6 +11,21 @@ class Signup extends React.Component {
       units: '',
       target: '',
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onSubmit(e) {
+    e.preventDefault();
+    const {
+      name, email, password, units, target,
+    } = this.state;
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
   }
 
   render() {
@@ -51,6 +66,7 @@ class Signup extends React.Component {
                         type="text"
                         id="name"
                         value={name}
+                        onChange={e => this.handleChange(e)}
                       />
                     </div>
                   </div>
@@ -63,6 +79,7 @@ class Signup extends React.Component {
                         type="text"
                         id="email"
                         value={email}
+                        onChange={e => this.handleChange(e)}
                       />
                     </div>
                   </div>
@@ -75,18 +92,7 @@ class Signup extends React.Component {
                         type="password"
                         id="password"
                         value={password}
-                      />
-                    </div>
-                  </div>
-                  <div className="form-group">
-                    <div className="right-inner-addon">
-                      <i className="fa fa-key" />
-                      <input
-                        className="form-control input-lg"
-                        placeholder="Confirm Password"
-                        type="password"
-                        id="password"
-                        value={password}
+                        onChange={e => this.handleChange(e)}
                       />
                     </div>
                   </div>
@@ -95,8 +101,9 @@ class Signup extends React.Component {
                       className="custom-select custom-select-md"
                       id="units"
                       value={units}
+                      onChange={e => this.handleChange(e)}
                     >
-                      <option selected>Choose monthly units</option>
+                      <option defaultValue>Choose monthly units</option>
                       <option value="1800">1800</option>
                       <option value="2100">2100</option>
                       <option value="2400">2400</option>
@@ -109,8 +116,9 @@ class Signup extends React.Component {
                       className="custom-select custom-select-md"
                       id="target"
                       value={target}
+                      onChange={e => this.handleChange(e)}
                     >
-                      <option selected>Choose month target savings</option>
+                      <option defaultValue>Choose month target savings</option>
                       <option value="5">5%</option>
                       <option value="10">10%</option>
                       <option value="15">15%</option>
@@ -122,7 +130,11 @@ class Signup extends React.Component {
                 <hr />
                 <div className="tab-content">
                   <div className="tab-pane active text-center" id="pp">
-                    <button type="button" className="btn btn-primary btn-lg btn-block">
+                    <button
+                      className="btn btn-primary btn-lg btn-block"
+                      type="button"
+                      onClick={e => this.onSubmit(e)}
+                    >
                       <i className="fa fa-plus" />
                       {' '}
                       Create Account
