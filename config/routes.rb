@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index]
     scope :users do
        resources :sessions, only: [:create], module: :users
+       delete "/sessions", to: "users/sessions#destroy", module: :users
     end
   end
 end
