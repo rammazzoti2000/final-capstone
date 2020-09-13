@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import Head from '../components/home/Head';
+import Head from '../components/Head';
 import Signup from '../components/home/Signup';
 import Signin from '../components/home/Signin';
 

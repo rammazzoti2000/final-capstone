@@ -1,16 +1,16 @@
 import React from 'react';
-import InputGraph from '../graph/InputGraph';
+import InputGraph from '../graph/InputGraph'
 
 export function Bedroom(props) {
   if (props.currentStep !== 1) {
-    return null;
+    return null
   }
-  return (
+  return(
     <>
+      <div className="row justify-content-center reading-header">
+        <h4>Take your Bedroom Reading</h4>
+      </div>
       <div className="row justify-content-center">
-        <div className="row justify-content-center reading-header">
-          <h4>Take your Bedroom Reading</h4>
-        </div>
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={props.bedroom} />
         </div>
@@ -32,14 +32,14 @@ export function Bedroom(props) {
 
 export function Study(props) {
   if (props.currentStep !== 2) {
-    return null;
+    return null
   }
-  return (
+  return(
     <>
+      <div className="row justify-content-center reading-header">
+        <h4>Take your Study room Reading</h4>
+      </div>
       <div className="row justify-content-center">
-        <div className="row justify-content-center reading-header">
-          <h4>Take your Study room Reading</h4>
-        </div>
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={props.study} />
         </div>
@@ -61,14 +61,14 @@ export function Study(props) {
 
 export function Garage(props) {
   if (props.currentStep !== 3) {
-    return null;
+    return null
   }
   return(
     <>
+      <div className="row justify-content-center reading-header">
+        <h4>Take your Garage Reading</h4>
+      </div>
       <div className="row justify-content-center">
-        <div className="row justify-content-center reading-header">
-          <h4>Take your Garage Reading</h4>
-        </div>
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={props.garage} />
         </div>
@@ -90,14 +90,14 @@ export function Garage(props) {
 
 export function Living(props) {
   if (props.currentStep !== 4) {
-    return null;
+    return null
   }
-  return (
+  return(
     <>
+      <div className="row justify-content-center reading-header">
+        <h4>Take your Living Room Reading</h4>
+      </div>
       <div className="row justify-content-center">
-        <div className="row justify-content-center reading-header">
-          <h4>Take your Living Room Reading</h4>
-        </div>
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={props.living} />
         </div>
@@ -119,14 +119,14 @@ export function Living(props) {
 
 export function Kitchen(props) {
   if (props.currentStep !== 5) {
-    return null;
+    return null
   }
-  return (
+  return(
     <>
+      <div className="row justify-content-center reading-header">
+        <h4>Take your Kitchen Reading</h4>
+      </div>
       <div className="row justify-content-center">
-        <div className="row justify-content-center reading-header">
-          <h4>Take your Kitchen Reading</h4>
-        </div>
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={props.kitchen} />
         </div>
@@ -150,12 +150,12 @@ export function Guest(props) {
   if (props.currentStep !== 6) {
     return null;
   }
-  return (
+  return(
     <>
+      <div className="row justify-content-center reading-header">
+        <h4>Take your Guest Room Reading</h4>
+      </div>
       <div className="row justify-content-center">
-        <div className="row justify-content-center reading-header">
-          <h4>Take your Guest Room Reading</h4>
-        </div>
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={props.guest} />
         </div>
@@ -171,7 +171,7 @@ export function Guest(props) {
           onChange={props.handleChange}
         />
       </div>
-      <button type="button" className="btn btn-success btn-block">Submit</button>
+    <button className="btn btn-success btn-block">Submit</button>
     </>
   );
 }

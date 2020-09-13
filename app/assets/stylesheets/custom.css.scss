@@ -9,6 +9,7 @@ $lighter-gray: #f3f4f6;
 
 body {
   background-color: $lighter-gray !important;
+  height: 100%;
 }
 
 .bg-blue {
@@ -172,7 +173,7 @@ input {
 .reading-header {
   background-color: white;
   height: 75px;
-  width: 100%;
+  text-align: center;
   h4 {
     margin: auto;
     padding: auto;
@@ -187,8 +188,69 @@ input {
   margin: 5% 0 5% 0;
 }
 
+.full-width-row {
+  overflow-x: hidden;
+}
+
+.daily-stats {
+  background-color: #f3f4f6;
+  height: 100vh;
+  margin: auto;
+  margin-bottom: 2em;
+  padding: 0 0px 40px 0px;
+  width: 70%;
+  min-width: 300px;
+}
+
+.circular-dimension {
+  max-width: 40%;
+}
+
+.graph-box {
+  background-color: white;
+  justify-content: center;
+  .row {
+    .col {
+      max-width: 100%;
+    }
+  }
+}
+
+.circular-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.room-card {
+  margin: 10px 10px 10px 10px;
+  .row{
+    .col {
+      background-color: white;
+      padding: 10px 10px 10px 10px;
+      text-align: center;
+      i {
+        color: $blue;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 720px) {
-  #regForm {
+  #regForm,
+  .daily-stats {
     width: 100%;
+  }
+  .circular-dimension {
+    width: 100%;
+  }
+  .room-card {
+    .row {
+      .col {
+        i {
+          font-size: 3em;
+        }
+      }
+    }
   }
 }
