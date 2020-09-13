@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
+  # before_action :logged_in?, except: %i[new create]
+  # before_action :already_logged_in, only: %i[new create]
 
   def index
     @users = User.all
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      login @user
       render json: {
         code: 200
       }

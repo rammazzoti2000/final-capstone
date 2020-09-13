@@ -117,3 +117,97 @@ nav {
   input[type="text"], input[type="password"], .btn {
   border-radius: 0px;
 }
+
+#regForm {
+  background-color: #f3f4f6;
+  margin: auto;
+  margin-bottom: 2em;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaaaaa;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #ffdddd;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: block;
+}
+
+.btn-box {
+  button {
+    background-color: #a9dc95;
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
+    margin: 0.25em 0 0.25em 0;
+    padding: 15px 70px;
+  }
+
+  button:hover {
+    opacity: 0.8;
+  }
+
+  #nextBtn {
+    margin-right: 0.25em;
+  }
+
+  #prevBtn {
+    background-color: white;
+    color: #bbbbbb;
+    margin-left: 0.25em;
+  }
+}
+
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbbbbb;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #4CAF50;
+}
+
+.overflow-auto {
+  overflow: auto;
+  align-content: center;
+}
+
+.float-right {
+  float: left;
+}
+
+.btn-box {
+  background-color: white;
+}
+
+@media screen and (max-width: 720px) {
+  #regForm {
+    width: 100%;
+  }
+}
