@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/*path' => 'homepage#index'
   scope "/api" do
     resources :users, only: [:create, :index]
+    resources :readings, only: %i[create destroy index show]
     scope :users do
        resources :sessions, only: [:create], module: :users
        delete "/sessions", to: "users/sessions#destroy", module: :users
