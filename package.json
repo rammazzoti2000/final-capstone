@@ -41,5 +41,24 @@
     "stylelint-csstree-validator": "^1.8.0",
     "stylelint-scss": "^3.17.2",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rammazzoti2000/final-capstone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rammazzoti2000/final-capstone/issues"
+  },
+  "homepage": "https://github.com/rammazzoti2000/final-capstone#readme"
 }
