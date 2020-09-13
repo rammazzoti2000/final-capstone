@@ -1,9 +1,5 @@
 class ApplicationController < ActionController::Base
-  # protect_from_forgery with: :exception
-  skip_before_action :verify_authenticity_token
-
-  helper_method :login, :logged_in?, :current_user
-
+  protect_from_forgery with: :exception
   def login(user)
     session[:id] = user.id
   end

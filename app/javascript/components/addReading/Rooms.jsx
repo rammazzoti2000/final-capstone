@@ -1,11 +1,14 @@
+/* eslint-disable react/destructuring-assignment, react/button-has-type */
 import React from 'react';
-import InputGraph from '../graph/InputGraph'
+import PropTypes from 'prop-types';
+import InputGraph from '../graph/InputGraph';
 
 export function Bedroom(props) {
   if (props.currentStep !== 1) {
-    return null
+    return null;
   }
-  return(
+
+  return (
     <>
       <div className="row justify-content-center reading-header">
         <h4>Take your Bedroom Reading</h4>
@@ -30,11 +33,17 @@ export function Bedroom(props) {
   );
 }
 
+Bedroom.propTypes = {
+  bedroom: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+};
+
 export function Study(props) {
   if (props.currentStep !== 2) {
-    return null
+    return null;
   }
-  return(
+  return (
     <>
       <div className="row justify-content-center reading-header">
         <h4>Take your Study room Reading</h4>
@@ -59,11 +68,17 @@ export function Study(props) {
   );
 }
 
+Study.propTypes = {
+  study: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+};
+
 export function Garage(props) {
   if (props.currentStep !== 3) {
-    return null
+    return null;
   }
-  return(
+  return (
     <>
       <div className="row justify-content-center reading-header">
         <h4>Take your Garage Reading</h4>
@@ -88,11 +103,17 @@ export function Garage(props) {
   );
 }
 
+Garage.propTypes = {
+  garage: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+};
+
 export function Living(props) {
   if (props.currentStep !== 4) {
-    return null
+    return null;
   }
-  return(
+  return (
     <>
       <div className="row justify-content-center reading-header">
         <h4>Take your Living Room Reading</h4>
@@ -117,11 +138,17 @@ export function Living(props) {
   );
 }
 
+Living.propTypes = {
+  living: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+};
+
 export function Kitchen(props) {
   if (props.currentStep !== 5) {
-    return null
+    return null;
   }
-  return(
+  return (
     <>
       <div className="row justify-content-center reading-header">
         <h4>Take your Kitchen Reading</h4>
@@ -146,11 +173,17 @@ export function Kitchen(props) {
   );
 }
 
+Kitchen.propTypes = {
+  kitchen: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+};
+
 export function Guest(props) {
   if (props.currentStep !== 6) {
     return null;
   }
-  return(
+  return (
     <>
       <div className="row justify-content-center reading-header">
         <h4>Take your Guest Room Reading</h4>
@@ -171,7 +204,13 @@ export function Guest(props) {
           onChange={props.handleChange}
         />
       </div>
-    <button className="btn btn-success btn-block">Submit</button>
+      <button className="btn btn-success btn-block">Submit</button>
     </>
   );
 }
+
+Guest.propTypes = {
+  guest: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+};

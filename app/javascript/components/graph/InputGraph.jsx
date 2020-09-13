@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const InputGraph = ({ strokeWidth, percentage }) => {
   const radius = (50 - strokeWidth / 2);
@@ -13,7 +14,7 @@ const InputGraph = ({ strokeWidth, percentage }) => {
     stroke: '#42B5E8',
     strokeLinecap: 'round',
     strokeDasharray: `${diameter}px ${diameter}px`,
-    strokeDashoffset: `${((100 - percentage) / 100 * diameter)}px`,
+    strokeDashoffset: `${(((100 - percentage) / 100) * diameter)}px`,
   };
 
   return (
@@ -29,7 +30,7 @@ const InputGraph = ({ strokeWidth, percentage }) => {
         strokeWidth={strokeWidth}
         fillOpacity={0}
         style={{
-          stroke: '#C0C0C0',
+          stroke: '#FFFFFF',
         }}
       />
 
@@ -56,6 +57,11 @@ const InputGraph = ({ strokeWidth, percentage }) => {
       </text>
     </svg>
   );
+};
+
+InputGraph.propTypes = {
+  strokeWidth: PropTypes.number.isRequired,
+  percentage: PropTypes.string.isRequired,
 };
 
 export default InputGraph;

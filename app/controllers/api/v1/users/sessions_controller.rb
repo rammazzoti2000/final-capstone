@@ -1,13 +1,11 @@
-class Users::SessionsController < ApplicationController
-  # skip_before_action :verify_authenticity_token, only: %i[create destroy]
-  # before_action :logged_in?, except: [:destroy]
+class Api::V1::Users::SessionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
 
   def create
     @user = User.find_by(email: params[:user][:email])
-    if @user && @user.authenticate(params[:user][:password])
+    if @user&.authenticate(params[:user][:password])
       login @user
       render json: {
-        logged_in?: true,
         code: 200,
         user: {
           name: @user.name
@@ -16,8 +14,7 @@ class Users::SessionsController < ApplicationController
     else
       render json: {
         code: 400,
-        errors: { Error: ['no such user',
-                          'verify credentials and try again or signup'] }
+        errors: { Error: ['Email and/or Password does not match !'] }
       }
     end
   end

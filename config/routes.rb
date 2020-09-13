@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  root 'homepage#index'
-  get '/*path' => 'homepage#index'
-  scope "/api" do
-    resources :users, only: [:create, :index]
-    resources :readings, only: %i[create destroy index show]
-    scope :users do
-       resources :sessions, only: [:create], module: :users
-       delete "/sessions", to: "users/sessions#destroy", module: :users
+  namespace :api do
+    namespace :v1 do
+      resources :readings, only: [:create, :index, :show]
+      get '/readings/user/:id', to: 'readings#list_readings_by_user'
+      get '/user/:user_id/reading/:id', to: 'readings#list_reading'
+      resources :users, only: [:create, :index]
+      get 'users/:id', to: 'users#find_user'
+      delete 'users/sessions', to: 'users/sessions#destroy'
+      namespace :users do
+        resources :sessions, only: [:create]
+      end
     end
   end
+  root 'homepage#index'
+  get '/*path' => 'homepage#index'
 end

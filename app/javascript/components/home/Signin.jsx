@@ -1,5 +1,5 @@
-/* eslint-disable react/forbid-prop-types, react/no-unused-state */
-
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -19,11 +19,9 @@ class Signin extends React.Component {
   }
 
   onSubmit(e) {
-    const { login, history } = this.props;
-
     e.preventDefault();
     const { email, password } = this.state;
-    axios.post('/api/users/sessions', {
+    axios.post('/api/v1/users/sessions', {
       user: {
         email,
         password,
@@ -32,8 +30,8 @@ class Signin extends React.Component {
       .then(response => response.data)
       .then(response => {
         if (response.code === 200) {
-          login(response.user.id, response.user.name);
-          history.push('/readings');
+          this.props.login(response.user.name);
+          this.props.history.push('/addreading');
         } else if (response.code === 400) {
           this.setState({
             errors: response.errors,
@@ -47,31 +45,6 @@ class Signin extends React.Component {
       {
         [e.target.id]: e.target.value,
       },
-    );
-  }
-
-  showErrors() {
-    const { errors } = this.state;
-    if (Object.keys(errors).size === 0) {
-      return (null);
-    }
-    return (
-      <div className="bg-danger text-white px-3">
-        {Object.keys(errors).map(key => (
-          <div key={key}>
-            {' '}
-            -
-            {' '}
-            {key.charAt(0).toUpperCase() + key.slice(1)}
-            :
-            {' '}
-            <ul>
-              {' '}
-              {errors[key].map(m => <li key={m}>{m}</li>)}
-            </ul>
-          </div>
-        ))}
-      </div>
     );
   }
 
@@ -121,21 +94,20 @@ class Signin extends React.Component {
             LOGIN
           </button>
         </div>
-        <br />
-        {this.showErrors()}
       </div>
     );
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: ((id, name) => {
-    dispatch(SIGNEDIN(id, name));
+  login: (name => {
+    dispatch(SIGNEDIN(name));
   }),
 });
 
 Signin.propTypes = {
   login: PropTypes.func.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   history: PropTypes.object.isRequired,
 };
 

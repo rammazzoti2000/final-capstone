@@ -1,7 +1,14 @@
-/* eslint-disable no-underscore-dangle, no-alert */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
+import axios from 'axios';
 import {
-  Bedroom, Study, Garage, Living, Kitchen, Guest,
+  Bedroom,
+  Study,
+  Garage,
+  Living,
+  Kitchen,
+  Guest,
 } from './Rooms';
 
 class ReadingForm extends React.Component {
@@ -18,8 +25,8 @@ class ReadingForm extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this._next = this._next.bind(this);
-    this._prev = this._prev.bind(this);
+    this.prev = this.prev.bind(this);
+    this.next = this.next.bind(this);
   }
 
   handleChange(event) {
@@ -34,16 +41,39 @@ class ReadingForm extends React.Component {
     const {
       bedroom, study, garage, living, kitchen, guest,
     } = this.state;
-    alert(`Your registration detail: \n
-           Bedroom: ${bedroom}\n
-           Study: ${study} \n
-           Garage: ${garage} \n
-           Living: ${living} \n
-           Kitchen: ${kitchen} \n
-           Guest: ${guest}`);
+    const consumption = Number(bedroom)
+    + Number(study)
+    + Number(garage)
+    + Number(living)
+    + Number(kitchen)
+    + Number(guest);
+    const available = (1800 / 30) - consumption;
+    const saved = Math.floor(100 - (100 * (consumption / (1800 / 30))));
+    axios.post('/api/v1/readings', {
+      bedroom, study, garage, living, kitchen, guest, consumption, available, saved,
+    })
+      .then(response => response.data)
+      .then(response => {
+        if (response.code === 400) {
+          this.setState({
+            errors: response.errors,
+          });
+        } else if (response.code === 200) {
+          this.setState({
+            bedroom: '',
+            study: '',
+            garage: '',
+            living: '',
+            kitchen: '',
+            consumption: '',
+            available: '',
+            saved: '',
+          });
+        }
+      });
   }
 
-  _next() {
+  next() {
     let { currentStep } = this.state;
     switch (currentStep) {
       case 2:
@@ -67,7 +97,7 @@ class ReadingForm extends React.Component {
     });
   }
 
-  _prev() {
+  prev() {
     let { currentStep } = this.state;
     currentStep = currentStep <= 1 ? 1 : currentStep - 1;
     this.setState({
@@ -85,7 +115,7 @@ class ReadingForm extends React.Component {
         <button
           type="button"
           id="prevBtn"
-          onClick={this._prev}
+          onClick={this.prev}
         >
           Previous
         </button>
@@ -101,7 +131,7 @@ class ReadingForm extends React.Component {
         <button
           type="button"
           id="nextBtn"
-          onClick={this._next}
+          onClick={this.next}
         >
           Next
         </button>
@@ -111,43 +141,38 @@ class ReadingForm extends React.Component {
   }
 
   render() {
-    const {
-      currentStep, bedroom, study, garage, living, kitchen, guest,
-    } = this.state;
-    let { num } = this.props;
-
     return (
       <>
         <form id="regForm" onSubmit={this.handleSubmit}>
           <Bedroom
-            currentStep={currentStep}
+            currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            bedroom={bedroom}
+            bedroom={this.state.bedroom}
           />
           <Study
-            currentStep={currentStep}
+            currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            study={study}
+            study={this.state.study}
           />
           <Garage
-            currentStep={currentStep}
+            currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            garage={garage}
+            garage={this.state.garage}
           />
           <Living
-            currentStep={currentStep}
+            currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            living={living}
+            living={this.state.living}
           />
           <Kitchen
-            currentStep={currentStep}
+            currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            kitchen={kitchen}
+            kitchen={this.state.kitchen}
           />
           <Guest
-            currentStep={currentStep}
+            currentStep={this.state.currentStep}
             handleChange={this.handleChange}
-            guest={guest}
+            guest={this.state.guest}
           />
           <div className="row justify-content-center btn-box">
             {this.previousButton()}

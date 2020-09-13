@@ -1,6 +1,5 @@
 const initialState = {
   siginin: false,
-  id: '',
   name: '',
 };
 

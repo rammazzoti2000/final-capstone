@@ -1,7 +1,7 @@
+/* eslint-disable react/no-unused-state */
 /* eslint-disable camelcase */
 import React from 'react';
 import axios from 'axios';
-import SweetAlert from 'sweetalert2-react';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -15,8 +15,6 @@ class Signup extends React.Component {
       target: '',
       errors: {},
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(e) {
@@ -24,21 +22,12 @@ class Signup extends React.Component {
     const {
       name, email, password, password_confirmation, units, target,
     } = this.state;
-
-    axios.post('/api/users', {
-      user: {
-        name,
-        email,
-        password,
-        password_confirmation,
-        units,
-        target,
-      },
+    axios.post('/api/v1/users', {
+      name, email, password, password_confirmation, units, target,
     })
       .then(response => response.data)
       .then(response => {
         if (response.code === 400) {
-          console.log(response.errors);
           this.setState({
             errors: response.errors,
           });
@@ -56,45 +45,20 @@ class Signup extends React.Component {
       });
   }
 
-  showErrors() {
-    const { errors } = this.state;
-    if (Object.keys(errors).size === 0) {
-      return (null);
-    }
-    return (
-      <div className="bg-danger text-white px-3">
-        {Object.keys(errors).map(key => (
-          <div key={key}>
-            {' '}
-            -
-            {' '}
-            {key.charAt(0).toUpperCase() + key.slice(1)}
-            :
-            {' '}
-            <ul>
-              {' '}
-              {errors[key].map(m => <li key={m}>{m}</li>)}
-            </ul>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
   handleChange(e) {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
+    this.setState(
+      {
+        [e.target.id]: e.target.value,
+      },
+    );
   }
 
   render() {
     const {
-      name, email, password, password_confirmation, units, target, success,
+      name, email, password, password_confirmation, units, target,
     } = this.state;
-
     return (
       <div className="tab-content">
-        {this.showErrors()}
         <div id="new">
           <br />
           <fieldset>
@@ -113,7 +77,7 @@ class Signup extends React.Component {
             </div>
             <div className="form-group">
               <div className="right-inner-addon">
-                <i className="fa fa-envelop" />
+                <i className="fa fa-envelope" />
                 <input
                   className="form-control input-lg"
                   placeholder="Email"
@@ -157,7 +121,7 @@ class Signup extends React.Component {
                 value={units}
                 onChange={e => this.handleChange(e)}
               >
-                <option defaultValue>Choose monthly units</option>
+                <option>Choose monthly units</option>
                 <option value="1800">1800</option>
                 <option value="2100">2100</option>
                 <option value="2400">2400</option>
@@ -172,7 +136,7 @@ class Signup extends React.Component {
                 value={target}
                 onChange={e => this.handleChange(e)}
               >
-                <option defaultValue>Choose month target savings</option>
+                <option>Choose month target savings</option>
                 <option value="5">5%</option>
                 <option value="10">10%</option>
                 <option value="15">15%</option>
@@ -186,7 +150,7 @@ class Signup extends React.Component {
             <div className="tab-pane active text-center" id="pp">
               <button
                 className="btn btn-primary btn-lg btn-block"
-                type="button"
+                type="submit"
                 onClick={e => this.onSubmit(e)}
               >
                 <i className="fa fa-plus" />
@@ -196,8 +160,6 @@ class Signup extends React.Component {
             </div>
           </div>
         </div>
-        <br />
-        {success ? <SweetAlert show={success} title="Energy Tracker" text="Sign up successful! Proceed to login." /> : ''}
       </div>
     );
   }

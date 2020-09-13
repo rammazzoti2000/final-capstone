@@ -1,8 +1,8 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
-// import { Link } from 'react-router-dom';
 import Head from '../components/Head';
-import Signup from '../components/home/Signup';
 import Signin from '../components/home/Signin';
+import Signup from '../components/home/Signup';
 
 class Home extends React.Component {
   constructor(props) {
@@ -27,9 +27,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const { section } = this.state;
-    const sector = section;
-
+    const sector = this.state.section;
     return (
       <div>
         <Head />
@@ -37,7 +35,7 @@ class Home extends React.Component {
           <div className="row justify-content-center">
             <div className="col-md-4 col-md-offset-4">
               <br />
-              {/* Nav Tabs */}
+              {/* Nav tabs */}
               <div className="text-center">
                 <div className="btn-group">
                   <button
