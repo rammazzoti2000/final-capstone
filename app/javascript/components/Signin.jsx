@@ -1,5 +1,127 @@
+/* eslint-disable react/forbid-prop-types */
+
+// import React from 'react';
+// import axios from 'axios';
+// import { connect } from 'react-redux';
+// import PropTypes from 'prop-types';
+// import { SIGNEDIN } from '../actions';
+//
+// class Signin extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       email: '',
+//       password: '',
+//       errors: {},
+//       success: true,
+//     };
+//     this.handleChange = this.handleChange.bind(this);
+//     this.onSubmit = this.onSubmit.bind(this);
+//   }
+//
+//   onSubmit(e) {
+//     e.preventDefault();
+//     const { email, password } = this.state;
+//     const { login, history } = this.props;
+//
+//     axios.post('api/users/sessions', {
+//       user: {
+//         email,
+//         password,
+//       },
+//     })
+//       .then(response => response.data)
+//       .then(response => {
+//         if (response.code === 200) {
+//           login(response.user.name);
+//           history.push('/readings');
+//         } else if (response.code === 400) {
+//           this.setState({
+//             errors: response.errors,
+//           });
+//         }
+//       });
+//   }
+//
+//   handleChange(e) {
+//     this.setState({
+//       [e.target.id]: e.target.value,
+//     });
+//   }
+//
+//   render() {
+//     const { email, password } = this.state;
+//     return (
+//       <div className="tab-pane fade" id="user">
+//         <br />
+//         <fieldset>
+//           <div className="form-group">
+//             <div className="right-inner-addon">
+//               <i className="fa fa-envelope" />
+//               <input
+//                 className="form-control input-lg"
+//                 placeholder="Email"
+//                 type="text"
+//                 id="email"
+//                 value={email}
+//                 onChange={e => this.handleChange(e)}
+//               />
+//             </div>
+//           </div>
+//           <div className="form-group">
+//             <div className="right-inner-addon">
+//               <i className="fa fa-key" />
+//               <input
+//                 className="form-control input-lg"
+//                 placeholder="Password"
+//                 type="password"
+//                 id="password"
+//                 value={password}
+//                 onChange={e => this.handleChange(e)}
+//               />
+//             </div>
+//           </div>
+//         </fieldset>
+//         <br />
+//         <div className=" text-center">
+//           <button
+//             type="button"
+//             className="btn btn-primary btn-success"
+//             onClick={e => this.onSubmit(e)}
+//           >
+//             <i className="fa fa-user" />
+//             {' '}
+//             LOGIN
+//           </button>
+//         </div>
+//       </div>
+//     );
+//   }
+// }
+//
+// const mapDispatchToProps = dispatch => ({
+//   login: (name => {
+//     dispatch(SIGNEDIN(name));
+//   }),
+// });
+//
+// Signin.defaultProps = {
+//   history: {},
+// };
+//
+// Signin.propTypes = {
+//   login: PropTypes.func.isRequired,
+//   history: PropTypes.object,
+// };
+//
+// export default connect(null, mapDispatchToProps)(Signin);
+
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { SIGNEDIN } from '../actions';
 
@@ -12,21 +134,21 @@ class Signin extends React.Component {
       errors: {},
       success: true,
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
     const { email, password } = this.state;
-
-    axios.post('api/users/sessions', {
-      email, password,
+    axios.post('/api/users/sessions', {
+      user: {
+        email,
+        password,
+      },
     })
       .then(response => response.data)
       .then(response => {
         if (response.code === 200) {
-          this.props.login(response.user.name);
+          this.props.login(response.user.id, response.user.name);
           this.props.history.push('/readings');
         } else if (response.code === 400) {
           this.setState({
@@ -37,17 +159,40 @@ class Signin extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({
-      [e.target.id]: e.target.value,
-    });
+    this.setState(
+      {
+        [e.target.id]: e.target.value,
+      },
+    );
+  }
+
+  showErrors() {
+    const { errors } = this.state;
+    if (Object.keys(errors).size === 0) {
+      return (null);
+    }
+    return (
+      <div className="bg-danger text-white px-3">
+        {Object.keys(errors).map(key => (
+          <div key={key}>
+            {' '}
+            {key}
+            {' '}
+            <ul>
+              {' '}
+              {errors[key].map(m => <li key={m}>{m}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    );
   }
 
   render() {
-    const {
-      email, password, errors, success
-    } = this.state;
+    const { email, password } = this.state;
+
     return (
-      <div className="tab-pane fade" id="user">
+      <div className="tab-pane" id="user">
         <br />
         <fieldset>
           <div className="form-group">
@@ -80,8 +225,8 @@ class Signin extends React.Component {
         <br />
         <div className=" text-center">
           <button
-            type="button"
             className="btn btn-primary btn-success"
+            type="button"
             onClick={e => this.onSubmit(e)}
           >
             <i className="fa fa-user" />
@@ -89,15 +234,22 @@ class Signin extends React.Component {
             LOGIN
           </button>
         </div>
+        <br />
+        {this.showErrors()}
       </div>
     );
   }
 }
 
-const mapDispatchProps = dispatch => ({
-  login: name => {
-    dispatch(SIGNEDIN(name));
-  },
+const mapDispatchToProps = dispatch => ({
+  login: ((id, name) => {
+    dispatch(SIGNEDIN(id, name));
+  }),
 });
 
-export default connect(null, mapDispatchProps)(Signin);
+Signin.propTypes = {
+  login: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+};
+
+export default withRouter(connect(null, mapDispatchToProps)(Signin));

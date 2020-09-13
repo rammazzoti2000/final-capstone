@@ -1,5 +1,6 @@
-const SIGNEDIN = name => ({
+const SIGNEDIN = (id, name) => ({
   type: 'SIGNEDIN',
+  id,
   name,
 });
 
