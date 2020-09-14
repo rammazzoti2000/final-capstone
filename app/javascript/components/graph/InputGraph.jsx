@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InputGraph = ({ strokeWidth, percentage }) => {
+const InputGraph = ({ strokeWidth, percentage, display }) => {
   const radius = (50 - strokeWidth / 2);
   const pathDescription = `
     M 50,50 m 0,-${radius}
@@ -53,7 +53,7 @@ const InputGraph = ({ strokeWidth, percentage }) => {
           textAnchor: 'middle',
         }}
       >
-        {`${percentage} Units`}
+        {`${display} Units`}
       </text>
     </svg>
   );
@@ -61,7 +61,12 @@ const InputGraph = ({ strokeWidth, percentage }) => {
 
 InputGraph.propTypes = {
   strokeWidth: PropTypes.number.isRequired,
-  percentage: PropTypes.string.isRequired,
+  display: PropTypes.string.isRequired,
+  // eslint-disable-next-line react/require-default-props
+  percentage: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
 };
 
 export default InputGraph;

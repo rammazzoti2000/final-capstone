@@ -31,6 +31,7 @@ class Signin extends React.Component {
       .then(response => {
         if (response.code === 200) {
           this.props.login(response.user.name);
+          console.log(response);
           this.props.history.push('/addreading');
         } else if (response.code === 400) {
           this.setState({
@@ -100,8 +101,8 @@ class Signin extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: (name => {
-    dispatch(SIGNEDIN(name));
+  login: ((name, id) => {
+    dispatch(SIGNEDIN(name, id));
   }),
 });
 

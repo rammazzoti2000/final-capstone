@@ -8,6 +8,9 @@ export function Bedroom(props) {
     return null;
   }
 
+  const quota = Number(props.quota);
+  const units = !props.bedroom ? '' : (Number(props.bedroom) / quota) * 100;
+
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -15,7 +18,7 @@ export function Bedroom(props) {
       </div>
       <div className="row justify-content-center">
         <div className="graph-content">
-          <InputGraph strokeWidth={2} percentage={props.bedroom} />
+          <InputGraph strokeWidth={2} percentage={units} display={props.bedroom} />
         </div>
       </div>
       <div className="row justify-content-center reading-input">
@@ -24,7 +27,7 @@ export function Bedroom(props) {
           id="bedroom"
           name="bedroom"
           type="number"
-          placeholder="Enter bedroom reading"
+          placeholder={`Enter bedroom units between 1 to ${quota}`}
           value={props.bedroom}
           onChange={props.handleChange}
         />
@@ -33,16 +36,13 @@ export function Bedroom(props) {
   );
 }
 
-Bedroom.propTypes = {
-  bedroom: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-};
-
 export function Study(props) {
   if (props.currentStep !== 2) {
     return null;
   }
+
+  const units = !props.study ? '' : (Number(props.study) / Number(props.quota)) * 100;
+
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -50,7 +50,7 @@ export function Study(props) {
       </div>
       <div className="row justify-content-center">
         <div className="graph-content">
-          <InputGraph strokeWidth={2} percentage={props.study} />
+          <InputGraph strokeWidth={2} percentage={units} display={props.study} />
         </div>
       </div>
       <div className="row justify-content-center reading-input">
@@ -59,7 +59,7 @@ export function Study(props) {
           id="study"
           name="study"
           type="number"
-          placeholder="Enter study reading"
+          placeholder={`Enter study room units between 1 to ${props.quota}`}
           value={props.study}
           onChange={props.handleChange}
         />
@@ -68,16 +68,13 @@ export function Study(props) {
   );
 }
 
-Study.propTypes = {
-  study: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-};
-
 export function Garage(props) {
   if (props.currentStep !== 3) {
     return null;
   }
+
+  const units = !props.garage ? '' : (Number(props.garage) / Number(props.quota)) * 100;
+
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -85,7 +82,7 @@ export function Garage(props) {
       </div>
       <div className="row justify-content-center">
         <div className="graph-content">
-          <InputGraph strokeWidth={2} percentage={props.garage} />
+          <InputGraph strokeWidth={2} percentage={units} display={props.garage} />
         </div>
       </div>
       <div className="row justify-content-center reading-input">
@@ -94,7 +91,7 @@ export function Garage(props) {
           id="garage"
           name="garage"
           type="number"
-          placeholder="Enter garage reading"
+          placeholder={`Enter garage units between 1 to ${props.quota}`}
           value={props.garage}
           onChange={props.handleChange}
         />
@@ -103,16 +100,13 @@ export function Garage(props) {
   );
 }
 
-Garage.propTypes = {
-  garage: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-};
-
 export function Living(props) {
   if (props.currentStep !== 4) {
     return null;
   }
+
+  const units = !props.living ? '' : (Number(props.living) / Number(props.quota)) * 100;
+
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -120,7 +114,7 @@ export function Living(props) {
       </div>
       <div className="row justify-content-center">
         <div className="graph-content">
-          <InputGraph strokeWidth={2} percentage={props.living} />
+          <InputGraph strokeWidth={2} percentage={units} display={props.living} />
         </div>
       </div>
       <div className="row justify-content-center reading-input">
@@ -129,7 +123,7 @@ export function Living(props) {
           id="living"
           name="living"
           type="number"
-          placeholder="Enter living reading"
+          placeholder={`Enter living room units between 1 to ${props.quota}`}
           value={props.living}
           onChange={props.handleChange}
         />
@@ -138,16 +132,13 @@ export function Living(props) {
   );
 }
 
-Living.propTypes = {
-  living: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-};
-
 export function Kitchen(props) {
   if (props.currentStep !== 5) {
     return null;
   }
+
+  const units = !props.kitchen ? '' : (Number(props.kitchen) / Number(props.quota)) * 100;
+
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -155,7 +146,7 @@ export function Kitchen(props) {
       </div>
       <div className="row justify-content-center">
         <div className="graph-content">
-          <InputGraph strokeWidth={2} percentage={props.kitchen} />
+          <InputGraph strokeWidth={2} percentage={units} display={props.kitchen} />
         </div>
       </div>
       <div className="row justify-content-center reading-input">
@@ -164,7 +155,7 @@ export function Kitchen(props) {
           id="kitchen"
           name="kitchen"
           type="number"
-          placeholder="Enter kitchen reading"
+          placeholder={`Enter kitchen units between 1 to ${props.quota}`}
           value={props.kitchen}
           onChange={props.handleChange}
         />
@@ -173,16 +164,13 @@ export function Kitchen(props) {
   );
 }
 
-Kitchen.propTypes = {
-  kitchen: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-};
-
 export function Guest(props) {
   if (props.currentStep !== 6) {
     return null;
   }
+
+  const units = !props.guest ? '' : (Number(props.guest) / Number(props.quota)) * 100;
+
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -190,7 +178,7 @@ export function Guest(props) {
       </div>
       <div className="row justify-content-center">
         <div className="graph-content">
-          <InputGraph strokeWidth={2} percentage={props.guest} />
+          <InputGraph strokeWidth={2} percentage={units} display={props.guest} />
         </div>
       </div>
       <div className="row justify-content-center reading-input">
@@ -199,7 +187,7 @@ export function Guest(props) {
           id="guest"
           name="guest"
           type="number"
-          placeholder="Enter guest reading"
+          placeholder={`Enter guest room units between 1 to ${props.quota}`}
           value={props.guest}
           onChange={props.handleChange}
         />
@@ -209,8 +197,62 @@ export function Guest(props) {
   );
 }
 
+Bedroom.propTypes = {
+  bedroom: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+};
+
+Study.propTypes = {
+  study: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+};
+
+Garage.propTypes = {
+  garage: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+};
+
+Living.propTypes = {
+  living: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+};
+
+Kitchen.propTypes = {
+  kitchen: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
+};
+
 Guest.propTypes = {
   guest: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
 };

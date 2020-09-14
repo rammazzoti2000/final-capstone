@@ -1,14 +1,9 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment, react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import {
-  Bedroom,
-  Study,
-  Garage,
-  Living,
-  Kitchen,
-  Guest,
+  Bedroom, Study, Garage, Living, Kitchen, Guest,
 } from './Rooms';
 
 class ReadingForm extends React.Component {
@@ -22,11 +17,32 @@ class ReadingForm extends React.Component {
       living: '',
       kitchen: '',
       guest: '',
+      units: '',
+      quota: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.prev = this.prev.bind(this);
     this.next = this.next.bind(this);
+  }
+
+  componentDidMount() {
+    const userID = JSON.parse(localStorage.getItem('redux')).id;
+    const { units } = this.state;
+    axios.get(`/api/v1/users/${userID}`, { units })
+      .then(response => response.data)
+      .then(response => {
+        if (response.code === 200) {
+          this.setState({
+            units: response.data.units,
+            quota: (Number(response.data.units) / 30) / 6,
+          });
+        } else if (response.code === 401) {
+          this.setState({
+            errors: response.errors,
+          });
+        }
+      });
   }
 
   handleChange(event) {
@@ -39,7 +55,7 @@ class ReadingForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     const {
-      bedroom, study, garage, living, kitchen, guest,
+      bedroom, study, garage, living, kitchen, guest, units,
     } = this.state;
     const consumption = Number(bedroom)
     + Number(study)
@@ -47,8 +63,8 @@ class ReadingForm extends React.Component {
     + Number(living)
     + Number(kitchen)
     + Number(guest);
-    const available = (1800 / 30) - consumption;
-    const saved = Math.floor(100 - (100 * (consumption / (1800 / 30))));
+    const available = (units / 30) - consumption;
+    const saved = Math.floor(100 - (100 * (consumption / (units / 30))));
     axios.post('/api/v1/readings', {
       bedroom, study, garage, living, kitchen, guest, consumption, available, saved,
     })
@@ -69,6 +85,7 @@ class ReadingForm extends React.Component {
             available: '',
             saved: '',
           });
+          this.props.history.push('/readings');
         }
       });
   }
@@ -146,31 +163,37 @@ class ReadingForm extends React.Component {
         <form id="regForm" onSubmit={this.handleSubmit}>
           <Bedroom
             currentStep={this.state.currentStep}
+            quota={this.state.quota}
             handleChange={this.handleChange}
             bedroom={this.state.bedroom}
           />
           <Study
             currentStep={this.state.currentStep}
+            quota={this.state.quota}
             handleChange={this.handleChange}
             study={this.state.study}
           />
           <Garage
             currentStep={this.state.currentStep}
+            quota={this.state.quota}
             handleChange={this.handleChange}
             garage={this.state.garage}
           />
           <Living
             currentStep={this.state.currentStep}
+            quota={this.state.quota}
             handleChange={this.handleChange}
             living={this.state.living}
           />
           <Kitchen
             currentStep={this.state.currentStep}
+            quota={this.state.quota}
             handleChange={this.handleChange}
             kitchen={this.state.kitchen}
           />
           <Guest
             currentStep={this.state.currentStep}
+            quota={this.state.quota}
             handleChange={this.handleChange}
             guest={this.state.guest}
           />
@@ -183,5 +206,9 @@ class ReadingForm extends React.Component {
     );
   }
 }
+
+ReadingForm.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+};
 
 export default ReadingForm;

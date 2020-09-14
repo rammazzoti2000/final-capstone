@@ -8,13 +8,14 @@ class Api::V1::Users::SessionsController < ApplicationController
       render json: {
         code: 200,
         user: {
+          id: @user.id,
           name: @user.name
         }
       }
     else
       render json: {
         code: 400,
-        errors: { Error: ['Email and/or Password does not match !'] }
+        errors: { Error: ['Email and/or Password don\'t match !'] }
       }
     end
   end

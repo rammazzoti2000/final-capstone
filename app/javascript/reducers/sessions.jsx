@@ -1,6 +1,7 @@
 const initialState = {
   siginin: false,
   name: '',
+  id: '',
 };
 
 const sessionReducer = (state = initialState, action) => {
