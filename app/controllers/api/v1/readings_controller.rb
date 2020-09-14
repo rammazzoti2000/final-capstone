@@ -97,4 +97,8 @@ class Api::V1::ReadingsController < ApplicationController
       :saved
     )
   end
+
+  def reading
+    @reading ||= Reading.find_by_user_id_and_id(params[:user_id], params[:id])
+  end
 end

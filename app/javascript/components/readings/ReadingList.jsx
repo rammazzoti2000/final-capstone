@@ -1,9 +1,6 @@
-/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import {
   CircularProgressbar,
   buildStyles,
@@ -24,12 +21,13 @@ class ReadingList extends React.Component {
     const userID = JSON.parse(localStorage.getItem('redux')).id;
     const { units } = this.state;
     axios.get(`/api/v1/readings/user/${userID}`, { units })
-      .then(response => response.data)
-      .then(response => {
+      .then((response) => response.data)
+      .then((response) => {
         if (response.code === 200) {
           this.setState({
             readings: response.data,
           });
+          console.log(response.data);
         } else if (response.code === 401) {
           this.setState({
             errors: response.errors,
@@ -40,7 +38,7 @@ class ReadingList extends React.Component {
 
   render() {
     const { readings } = this.state;
-    const allReadings = readings.slice(0).reverse().map(reading => (
+    const allReadings = readings.map((reading) => (
       <div className="row list" key={reading.id}>
         <div className="col-2 container graph">
           <Circle>
@@ -49,7 +47,6 @@ class ReadingList extends React.Component {
               styles={buildStyles({
                 textColor: '#4b627a',
                 pathColor: '#94e490',
-                trailColor: '#D6D6D6',
               })}
             />
           </Circle>
@@ -67,16 +64,13 @@ class ReadingList extends React.Component {
             </span>
           </div>
         </div>
+
         <div className="col-3 container graph-valuebox">
           <div className="row graph-value">
             {reading.available}
             <span className="read-units">Units</span>
             <br />
-            <span className="read-sym">
-              <Link to={`/user/${reading.user_id}/reading/${reading.id}`}>
-                <FontAwesomeIcon icon={faAngleRight} className="read-list" />
-              </Link>
-            </span>
+            <span className="read-sym"><i className="fas fa-angle-right" /></span>
           </div>
         </div>
       </div>

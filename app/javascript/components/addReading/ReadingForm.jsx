@@ -35,8 +35,8 @@ class ReadingForm extends React.Component {
     const userID = JSON.parse(localStorage.getItem('redux')).id;
     const { units } = this.state;
     axios.get(`/api/v1/users/${userID}`, { units })
-      .then(response => response.data)
-      .then(response => {
+      .then((response) => response.data)
+      .then((response) => {
         if (response.code === 200) {
           this.setState({
             units: response.data.units,
@@ -73,8 +73,8 @@ class ReadingForm extends React.Component {
     axios.post('/api/v1/readings', {
       bedroom, study, garage, living, kitchen, guest, consumption, available, saved,
     })
-      .then(response => response.data)
-      .then(response => {
+      .then((response) => response.data)
+      .then((response) => {
         if (response.code === 400) {
           this.setState({
             errors: response.errors,

@@ -1,8 +1,7 @@
-/* eslint-disable react/display-name */
 import React from 'react';
-import Head from '../components/reading/Head';
+import Head from '../components/readings/Head';
 import Navbar from '../components/Navbar';
-import ReadingList from '../components/reading/ReadingList';
+import ReadingList from '../components/readings/ReadingList';
 
 export default () => (
   <div>

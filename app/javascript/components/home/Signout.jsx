@@ -21,7 +21,7 @@ export class SignoutBtn extends Component {
         <button
           type="button"
           className="btn btn-warning"
-          onClick={e => this.onSubmit(e)}
+          onClick={(e) => this.onSubmit(e)}
         >
           Logout
         </button>
@@ -30,9 +30,9 @@ export class SignoutBtn extends Component {
   }
 }
 const mapStateToProps = state => {
-  const { login, name, id } = state;
+  const { login, id, name } = state;
   return {
-    login, name, id,
+    login, id, name,
   };
 };
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import React from 'react';
 import Head from '../components/Head';
 import DayStats from '../components/reading/DayStats';

@@ -27,11 +27,11 @@ class Signin extends React.Component {
         password,
       },
     })
-      .then(response => response.data)
-      .then(response => {
+      .then((response) => response.data)
+      .then((response) => {
         if (response.code === 200) {
-          this.props.login(response.user.name);
           console.log(response);
+          this.props.login(response.user.id, response.user.name);
           this.props.history.push('/addreading');
         } else if (response.code === 400) {
           this.setState({
@@ -65,7 +65,7 @@ class Signin extends React.Component {
                 type="text"
                 id="email"
                 value={email}
-                onChange={e => this.handleChange(e)}
+                onChange={(e) => this.handleChange(e)}
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ class Signin extends React.Component {
                 type="password"
                 id="password"
                 value={password}
-                onChange={e => this.handleChange(e)}
+                onChange={(e) => this.handleChange(e)}
               />
             </div>
           </div>
@@ -88,7 +88,7 @@ class Signin extends React.Component {
           <button
             className="btn btn-primary btn-success"
             type="button"
-            onClick={e => this.onSubmit(e)}
+            onClick={(e) => this.onSubmit(e)}
           >
             <i className="fa fa-user" />
             {' '}
@@ -101,8 +101,8 @@ class Signin extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  login: ((name, id) => {
-    dispatch(SIGNEDIN(name, id));
+  login: ((id, name) => {
+    dispatch(SIGNEDIN(id, name));
   }),
 });
 
