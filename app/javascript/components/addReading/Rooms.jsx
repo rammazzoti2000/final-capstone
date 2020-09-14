@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props, react/prop-types */
 /* eslint-disable react/destructuring-assignment, react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -7,10 +8,8 @@ export function Bedroom(props) {
   if (props.currentStep !== 1) {
     return null;
   }
-
   const quota = Number(props.quota);
   const units = !props.bedroom ? '' : (Number(props.bedroom) / quota) * 100;
-
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -36,13 +35,22 @@ export function Bedroom(props) {
   );
 }
 
+Bedroom.propTypes = {
+  bedroom: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};
+
 export function Study(props) {
   if (props.currentStep !== 2) {
     return null;
   }
 
   const units = !props.study ? '' : (Number(props.study) / Number(props.quota)) * 100;
-
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -68,13 +76,21 @@ export function Study(props) {
   );
 }
 
+Study.propTypes = {
+  study: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};
+
 export function Garage(props) {
   if (props.currentStep !== 3) {
     return null;
   }
-
   const units = !props.garage ? '' : (Number(props.garage) / Number(props.quota)) * 100;
-
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -100,13 +116,21 @@ export function Garage(props) {
   );
 }
 
+Garage.propTypes = {
+  garage: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};
+
 export function Living(props) {
   if (props.currentStep !== 4) {
     return null;
   }
-
   const units = !props.living ? '' : (Number(props.living) / Number(props.quota)) * 100;
-
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -132,13 +156,18 @@ export function Living(props) {
   );
 }
 
+Living.propTypes = {
+  living: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+
+};
+
 export function Kitchen(props) {
   if (props.currentStep !== 5) {
     return null;
   }
-
   const units = !props.kitchen ? '' : (Number(props.kitchen) / Number(props.quota)) * 100;
-
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -164,13 +193,21 @@ export function Kitchen(props) {
   );
 }
 
+Kitchen.propTypes = {
+  kitchen: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  currentStep: PropTypes.number.isRequired,
+  quota: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
+};
+
 export function Guest(props) {
   if (props.currentStep !== 6) {
     return null;
   }
-
   const units = !props.guest ? '' : (Number(props.guest) / Number(props.quota)) * 100;
-
   return (
     <>
       <div className="row justify-content-center reading-header">
@@ -197,56 +234,6 @@ export function Guest(props) {
   );
 }
 
-Bedroom.propTypes = {
-  bedroom: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-  quota: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-};
-
-Study.propTypes = {
-  study: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-  quota: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-};
-
-Garage.propTypes = {
-  garage: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-  quota: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-};
-
-Living.propTypes = {
-  living: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-  quota: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-};
-
-Kitchen.propTypes = {
-  kitchen: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  currentStep: PropTypes.number.isRequired,
-  quota: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
-};
-
 Guest.propTypes = {
   guest: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
@@ -254,5 +241,5 @@ Guest.propTypes = {
   quota: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]).isRequired,
+  ]),
 };

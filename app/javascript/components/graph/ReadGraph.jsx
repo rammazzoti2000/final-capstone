@@ -3,9 +3,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Circle = props => (
-  <div style={{ marginBottom: 20 }}>
-    <div className="circular-box">
-      <div className="circular-dimension">{props.children}</div>
+  <div>
+    <div className="circular-boxlist">
+      <div className="circular-list">{props.children}</div>
     </div>
   </div>
 );

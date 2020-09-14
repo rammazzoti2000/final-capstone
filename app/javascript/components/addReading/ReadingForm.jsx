@@ -1,9 +1,14 @@
-/* eslint-disable react/destructuring-assignment, react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
 import {
-  Bedroom, Study, Garage, Living, Kitchen, Guest,
+  Bedroom,
+  Study,
+  Garage,
+  Living,
+  Kitchen,
+  Guest,
 } from './Rooms';
 
 class ReadingForm extends React.Component {
@@ -85,7 +90,6 @@ class ReadingForm extends React.Component {
             available: '',
             saved: '',
           });
-          this.props.history.push('/readings');
         }
       });
   }
@@ -206,9 +210,5 @@ class ReadingForm extends React.Component {
     );
   }
 }
-
-ReadingForm.propTypes = {
-  history: PropTypes.instanceOf(Object).isRequired,
-};
 
 export default ReadingForm;

@@ -1,7 +1,7 @@
-const SIGNEDIN = (name, id) => ({
+const SIGNEDIN = (id, name) => ({
   type: 'SIGNEDIN',
-  name,
   id,
+  name,
 });
 const SIGNEDOUT = () => ({ type: 'SIGNEDOUT' });
 

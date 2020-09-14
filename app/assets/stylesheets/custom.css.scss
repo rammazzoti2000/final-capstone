@@ -1,30 +1,19 @@
-@import 'bootstrap/dist/css/bootstrap';
-@import "font-awesome";
-
-$blue: #42B5E8;
-$gray: #acafb4;
-$green: #22C65B;
-$grey: #313944;
-$lighter-gray: #f3f4f6;
-
 body {
-  background-color: $lighter-gray !important;
+  background-color: #f3f4f6 !important;
   height: 100%;
 }
 
 .bg-blue {
-  background-color: $blue;
+  background-color: #42B5E8;
 }
 
 .bg-grey {
-  background-color: $grey;
+  background-color: #313944;
 }
 
-nav {
-  h1 {
-    color: white;
-    font-weight: 600;
-  }
+nav h1 {
+  color: white;
+  font-weight: 600;
 }
 
 .navbar-brand.abs {
@@ -46,27 +35,27 @@ nav {
 .nav-pills
 .show > .nav-link {
 	color: #fff;
-	background-color: $blue !important;
+	background-color: #42B5E8 !important;
 }
 
-.tablist {
-  .col {
-    padding-left: unset;
-    padding-right: unset;
-  }
+.tablist .col {
+  padding-left: unset;
+  padding-right: unset;
 }
 
 .nav-pills .nav-link {
   border-radius: 0 !important;
-  color: $gray;
-  i {
-    font-size: 1.5em;
-    line-height: 1.3;
-  }
-  p {
-    font-size: 13px;
-    line-height: 17px;
-  }
+  color: #acafb4;
+}
+
+.nav-pills .nav-link .navIcon {
+  font-size: 1.5em;
+  line-height: 1.3;
+}
+
+.nav-pills .nav-link p {
+  font-size: 13px;
+  line-height: 17px;
 }
 
 .nav-link {
@@ -113,12 +102,12 @@ nav {
   font-weight: bold;
 }
 .btn-danger, .btn-danger:hover {
-  background-color: $green;
-  border-color: $green;
+  background-color: #22C65B;
+  border-color: #22C65B;
 }
 .btn-primary, .btn-primary:hover {
-  background-color: $blue;
-  border-color: $blue;
+  background-color: #42B5E8;
+  border-color: #42B5E8;
 }
   input[type="text"], input[type="password"], .btn {
   border-radius: 0px;
@@ -143,41 +132,42 @@ input {
 
 .btn-box {
   background-color: white;
+}
 
-  button {
-    background-color: #a9dc95;
-    border: none;
-    border-radius: 3px;
-    color: #ffffff;
-    font-size: 17px;
-    cursor: pointer;
-    margin: 0.25em 0 0.25em 0;
-    padding: 15px 65px;
-  }
+.btn-box button {
+  background-color: #a9dc95;
+  border: none;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 17px;
+  cursor: pointer;
+  margin: 0.25em 0 0.25em 0;
+  padding: 15px 65px;
+}
 
-  button:hover {
-    opacity: 0.8;
-  }
+.btn-box button:hover {
+  opacity: 0.8;
+}
 
-  #nextBtn {
-    margin-right: 0.25em;
-  }
+#nextBtn {
+  margin-right: 0.25em;
+}
 
-  #prevBtn {
-    background-color: white;
-    color: #bbbbbb;
-    margin-left: 0.25em;
-  }
+#prevBtn {
+  background-color: white;
+  color: #bbbbbb;
+  margin-left: 0.25em;
 }
 
 .reading-header {
   background-color: white;
   height: 75px;
   text-align: center;
-  h4 {
-    margin: auto;
-    padding: auto;
-  }
+}
+
+.reading-header h4 {
+  margin: auto;
+  padding: auto;
 }
 
 .graph-content {
@@ -202,55 +192,238 @@ input {
   min-width: 300px;
 }
 
-.circular-dimension {
-  max-width: 40%;
-}
-
-.graph-box {
-  background-color: white;
-  justify-content: center;
-  .row {
-    .col {
-      max-width: 100%;
-    }
-  }
-}
-
 .circular-box {
   display: flex;
   justify-content: center;
   margin-top: 30px;
 }
 
+.circular-box .circular-dimension {
+  max-width: 40%;
+}
+
+.graph-box {
+  background-color: white;
+  justify-content: center;
+}
+
+.graph-box .row .col {
+  max-width: 100%;
+}
+
 .room-card {
   margin: 10px 10px 10px 10px;
-  .row{
-    .col {
-      background-color: white;
-      padding: 10px 10px 10px 10px;
-      text-align: center;
-      i {
-        color: $blue;
-      }
-    }
+}
+
+.room-card .row .col {
+  background-color: white;
+  padding: 10px 10px 10px 10px;
+  text-align: center;
+}
+
+.room-card .col .dayStat {
+  color: #42B5E8;
+}
+
+.readlist {
+  background-color: #f3f4f6;
+  height: 100vh;
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 2em;
+  padding: 0 0 40px 0;
+  width: 70%;
+  min-width: 300px;
+}
+
+.list {
+  background-color: white;
+  margin: 10px 0 0 0 !important;
+  height: 50px;
+  text-align: center;
+}
+
+.list h4 {
+  margin: auto;
+  padding: auto;
+}
+
+.circular-list {
+  width: 40px;
+}
+
+.circular-boxlist {
+  float: right;
+  display: block;
+}
+
+.date-list {
+  color: #576d83;
+  font-weight: bold;
+}
+
+.saving-list {
+  color: #576d83;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.graph {
+  padding: 4px 0 4px 0;
+}
+
+.graph-valuebox {
+  padding: 10px 0 10px 0;
+}
+
+.graph-value {
+  color: #576d83;
+  font-size: 20px;
+  font-weight: bolder;
+  justify-content: center;
+}
+
+.read-units {
+  color: #576d83;
+  font-size: 10px;
+  font-weight: bold;
+  padding-top: 13px;
+}
+
+.read-sym {
+  color: #576d83;
+  padding: 0 10px 0 5px;
+}
+
+.read-list {
+  color: #576d83;
+}
+
+.read-list:hover {
+  color: blue;
+}
+
+.circle-text {
+  color: #576d83;
+  font-Size: 20px;
+  margin-Top: -5;
+  text-align: center;
+}
+
+.circle-strong {
+  font-Size: 45px;
+  margin-Top: -5;
+}
+
+.more {
+  background-color: #f3f4f6;
+  height: 100vh;
+  margin: auto;
+  margin-top: 22px;
+  margin-bottom: 2em;
+  padding: 0 0 40px 0;
+  width: 70%;
+  min-width: 300px;
+}
+
+.more-list {
+  background-color: white;
+  height: 75px;
+  margin: 10px 0 0 0 !important;
+  text-align: center;
+}
+
+.img-circle {
+  border-radius: 50%;
+  border: #42B5E8 2px solid;
+  float: right;
+  margin-right: 10px;
+  margin-top: 12.5px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hor img {
+  height: auto;
+  max-width: 50px;
+  max-height: 50px;
+  width: auto;
+}
+
+.profile-content {
+  text-align: left;
+  margin: auto 0 auto 0;
+}
+
+.profile-name {
+  color: #576d83;
+}
+
+.more-items {
+  background-color: #f3f4f6d3;
+  border-top: 1px #e4e5e6d3 solid;
+  height: 50px;
+  margin: 1px 0 0 0 !important;
+}
+
+.more-icons {
+  color: #576d83;
+  font-size: 1.5em;
+  margin: auto 0 auto 0;
+  text-align: end;
+}
+
+.more-icon {
+  margin-right: 25px;
+}
+
+.more-texts {
+  text-align: left;
+  margin: auto 0 auto 0;
+}
+
+.more-text {
+  color: #576d83;
+  font-weight: 600;
+}
+
+.btn-danger {
+  background-color: red;
+}
+
+.btn-danger:hover {
+  background-color: rgb(100, 0, 0);
+}
+
+@media screen and (max-width: 1280px) {
+  .circle-text {
+    font-Size: 15px;
+  }
+  .circle-strong {
+    font-Size: 30px;
   }
 }
 
 @media screen and (max-width: 720px) {
   #regForm,
-  .daily-stats {
+  .daily-stats,
+  .more,
+  .readlist {
     width: 100%;
   }
   .circular-dimension {
-    width: 100%;
+    width: 135px;
   }
-  .room-card {
-    .row {
-      .col {
-        i {
-          font-size: 3em;
-        }
-      }
-    }
+  .room-card .row .col .dayStat {
+    font-size: 3em;
+  }
+  .graph {
+    padding-right: 0 !important;
+  }
+  .circle-text {
+    font-Size: 10px;
+  }
+  .circle-strong {
+    font-Size: 23px;
   }
 }

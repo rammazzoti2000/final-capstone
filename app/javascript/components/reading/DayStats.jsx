@@ -12,7 +12,7 @@ const DayStats = () => {
     <>
       <div className="daily-stats">
         <div className="row reading-header">
-          <h4>24-September-2019</h4>
+          <h4>Today</h4>
         </div>
         <div className="row graph-box">
           <div className="row">
@@ -20,7 +20,7 @@ const DayStats = () => {
               <Circle>
                 <CircularProgressbar
                   value={percentage}
-                  text={`${percentage}%`}
+                  text={`${percentage} Units`}
                   strokeWidth={5}
                   styles={buildStyles({
                     textColor: '#4b627a',
