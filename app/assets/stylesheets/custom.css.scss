@@ -479,6 +479,30 @@ input {
     font-Size: 23px;
   }
 
+  .readlist {
+    height: auto;
+    .list {
+      background-color: #F3F4F6;
+      .graph,
+      .col {
+        padding-top: 14px;
+      }
+      .graph-value {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        .read-units {
+          padding: 11px 4px 5px 1px;
+        }
+        .read-sym {
+          font-size: 2rem;
+          padding: 0px 10px 0px 12px;
+        }
+      }
+    }
+  }
+
   #sticky-footer {
     height: 57px;
     padding: 5px;
