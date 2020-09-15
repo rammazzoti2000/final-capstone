@@ -411,6 +411,58 @@ input {
   .readlist {
     width: 100%;
   }
+
+  #regForm {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    .reading-header {
+      background-color: #F3F4F6;
+      h4 {
+        font-size: 1.4rem;
+        margin: 10px 0;
+      }
+    }
+    .graph-content {
+      display: flex;
+      justify-content: center;
+      margin: auto;
+
+      .CircularProgressbar {
+        width: 80%;
+        margin: -44px 0 -28px;
+      }
+    }
+
+    .form-control {
+      width: 88%;
+    }
+
+    .btn-success {
+      margin: 10px 59px 10px -37px;
+      padding: 10px;
+      width: 90px;
+      float: right;
+      clear: both;
+    }
+
+    .btn-box {
+      background-color: #F3F4F6;
+      display: flex;
+      flex-flow: row nowrap;
+      #prevBtn {
+        padding: 10px;
+      }
+      #nextBtn {
+        padding: 10px 22px;
+      }
+      #prevBtn,
+      #nextBtn {
+        margin: 10px;
+      }
+    }
+  }
+
   .circular-dimension {
     width: 135px;
   }
@@ -425,5 +477,10 @@ input {
   }
   .circle-strong {
     font-Size: 23px;
+  }
+
+  #sticky-footer {
+    height: 57px;
+    padding: 5px;
   }
 }
