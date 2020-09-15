@@ -94,7 +94,6 @@ export class DailyStats extends React.Component {
                   </Circle>
                   <div className="text-center">
                     <h6>Total</h6>
-                    <h6>Consumption</h6>
                   </div>
                 </div>
                 <div className="col">
@@ -120,7 +119,6 @@ export class DailyStats extends React.Component {
                   </Circle>
                   <div className="text-center">
                     <h6>Available</h6>
-                    <h6>Units Left</h6>
                   </div>
                 </div>
                 <div className="col">
@@ -137,10 +135,8 @@ export class DailyStats extends React.Component {
                       <div className="circle-text">
                         <strong className="circle-strong">
                           {reading.saved}
+                          %
                         </strong>
-                        <br />
-                        {' '}
-                        %
                       </div>
                     </CircularProgressbarWithChildren>
                   </Circle>
@@ -159,8 +155,8 @@ export class DailyStats extends React.Component {
                     <div className="col">
                       <FontAwesomeIcon icon={faBed} className="dayStat" size="4x" />
                     </div>
-                    <div className="col">
-                      <p>Bedroom</p>
+                    <div className="col room-units">
+                      <p className="m-0">Bedroom</p>
                       <h4>
                         {reading.bedroom}
                         {' '}
@@ -174,8 +170,8 @@ export class DailyStats extends React.Component {
                     <div className="col">
                       <FontAwesomeIcon icon={faLaptop} className="dayStat" size="4x" />
                     </div>
-                    <div className="col">
-                      <p>Study</p>
+                    <div className="col room-units">
+                      <p className="m-0">Study</p>
                       <h4>
                         {reading.study}
                         {' '}
@@ -191,8 +187,8 @@ export class DailyStats extends React.Component {
                     <div className="col">
                       <FontAwesomeIcon icon={faCar} className="dayStat" size="4x" />
                     </div>
-                    <div className="col">
-                      <p>Garage</p>
+                    <div className="col room-units">
+                      <p className="m-0">Garage</p>
                       <h4>
                         {reading.garage}
                         {' '}
@@ -206,8 +202,8 @@ export class DailyStats extends React.Component {
                     <div className="col">
                       <FontAwesomeIcon icon={faCouch} className="dayStat" size="4x" />
                     </div>
-                    <div className="col">
-                      <p>Living</p>
+                    <div className="col room-units">
+                      <p className="m-0">Living</p>
                       <h4>
                         {reading.living}
                         {' '}
@@ -223,8 +219,8 @@ export class DailyStats extends React.Component {
                     <div className="col">
                       <FontAwesomeIcon icon={faUtensils} className="dayStat" size="4x" />
                     </div>
-                    <div className="col">
-                      <p>Kitchen</p>
+                    <div className="col room-units">
+                      <p className="m-0">Kitchen</p>
                       <h4>
                         {reading.kitchen}
                         {' '}
@@ -238,8 +234,8 @@ export class DailyStats extends React.Component {
                     <div className="col">
                       <FontAwesomeIcon icon={faUserClock} className="dayStat" size="4x" />
                     </div>
-                    <div className="col">
-                      <p>Guest</p>
+                    <div className="col room-units">
+                      <p className="m-0">Guest</p>
                       <h4>
                         {reading.guest}
                         {' '}

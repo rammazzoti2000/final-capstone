@@ -1,6 +1,12 @@
+html,
+body {
+  height: 100vh;
+  overflow: auto;
+}
+
 body {
   background-color: #f3f4f6 !important;
-  height: 100%;
+  overflow-x: hidden;
 }
 
 .bg-blue {
@@ -463,8 +469,12 @@ input {
     }
   }
 
-  .circular-dimension {
-    width: 135px;
+  .circular-box {
+    margin: 0;
+    .circular-dimension {
+      width: 135px;
+      max-width: 80%;
+    }
   }
   .room-card .row .col .dayStat {
     font-size: 3em;
@@ -499,6 +509,40 @@ input {
           font-size: 2rem;
           padding: 0px 10px 0px 12px;
         }
+      }
+    }
+  }
+
+  .graph-box {
+    margin: 0 !important;
+    padding: 0 !important;
+    .row {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 0;
+      .col {
+        padding: 0 0 10px;
+        margin: -7px;
+        div {
+          margin-bottom: 5px !important;
+        }
+      }
+    }
+  }
+  .rows {
+    width: 90%;
+    margin: auto;
+    .room-card {
+      margin: 10px 5px;
+      .room-units {
+        h4 {
+          font-size: 17px !important;
+        }
+      }
+      .dayStat {
+        font-size: 2.7em !important;
       }
     }
   }
