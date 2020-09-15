@@ -131,7 +131,8 @@ const mapDispatchToProps = dispatch => ({
 
 Signin.propTypes = {
   login: PropTypes.func.isRequired,
-  history: PropTypes.instanceOf(Object).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(Signin));

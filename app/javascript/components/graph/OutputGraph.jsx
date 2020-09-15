@@ -11,7 +11,8 @@ const Circle = props => (
 );
 
 Circle.propTypes = {
-  children: PropTypes.instanceOf(Object).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  children: PropTypes.object.isRequired,
 };
 
 export default Circle;

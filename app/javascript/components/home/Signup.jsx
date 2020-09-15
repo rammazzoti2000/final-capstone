@@ -1,9 +1,8 @@
-/* eslint-disable react/no-unused-state, camelcase */
+/* eslint-disable react/no-unused-state */
+/* eslint-disable camelcase */
 import React from 'react';
 import axios from 'axios';
 import SweetAlert from 'sweetalert2-react';
-import { withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -25,9 +24,15 @@ class Signup extends React.Component {
     const {
       name, email, password, password_confirmation, units, target,
     } = this.state;
-    const { history } = this.props;
     axios.post('/api/v1/users', {
-      name, email, password, password_confirmation, units, target,
+      user: {
+        name,
+        email,
+        password,
+        password_confirmation,
+        units,
+        target,
+      },
     })
       .then(response => response.data)
       .then(response => {
@@ -46,17 +51,8 @@ class Signup extends React.Component {
             errors: {},
             success: true,
           });
-          history.push('/readings');
         }
       });
-  }
-
-  handleChange(e) {
-    this.setState(
-      {
-        [e.target.id]: e.target.value,
-      },
-    );
   }
 
   showErrors() {
@@ -81,14 +77,22 @@ class Signup extends React.Component {
     );
   }
 
+  handleChange(e) {
+    this.setState(
+      {
+        [e.target.id]: e.target.value,
+      },
+    );
+  }
+
   render() {
     const {
       name, email, password, password_confirmation, units, target, success,
     } = this.state;
     return (
       <div className="tab-content">
+        {this.showErrors()}
         <div id="new">
-          {this.showErrors()}
           <br />
           <fieldset>
             <div className="form-group">
@@ -189,14 +193,11 @@ class Signup extends React.Component {
             </div>
           </div>
         </div>
+        <br />
         {success ? <SweetAlert show={success} title="Energy Tracker" text="Sign up successful! Proceed to login." /> : ''}
       </div>
     );
   }
 }
 
-Signup.propTypes = {
-  history: PropTypes.instanceOf(Object).isRequired,
-};
-
-export default withRouter(Signup);
+export default Signup;

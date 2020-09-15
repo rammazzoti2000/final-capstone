@@ -160,6 +160,7 @@ Living.propTypes = {
   living: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
+
 };
 
 export function Kitchen(props) {

@@ -4,13 +4,18 @@ import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
-  Bedroom, Study, Garage, Living, Kitchen, Guest,
+  Bedroom,
+  Study,
+  Garage,
+  Living,
+  Kitchen,
+  Guest,
 } from './Rooms';
 
 class ReadingForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    const defaultState = {
       currentStep: 1,
       bedroom: '',
       study: '',
@@ -21,6 +26,7 @@ class ReadingForm extends React.Component {
       units: '',
       quota: '',
     };
+    this.state = defaultState;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.prev = this.prev.bind(this);
@@ -44,6 +50,12 @@ class ReadingForm extends React.Component {
           });
         }
       });
+  }
+
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    // eslint-disable-next-line no-unused-vars
+    this.setState = (state, callback) => { };
   }
 
   handleChange(event) {
@@ -93,23 +105,7 @@ class ReadingForm extends React.Component {
 
   next() {
     let { currentStep } = this.state;
-    switch (currentStep) {
-      case 2:
-        currentStep = 3;
-        break;
-      case 3:
-        currentStep = 4;
-        break;
-      case 4:
-        currentStep = 5;
-        break;
-      case 5:
-        currentStep = 6;
-        break;
-      default:
-        currentStep += 1;
-    }
-
+    currentStep = currentStep === 6 ? 6 : currentStep + 1;
     this.setState({
       currentStep,
     });
@@ -117,7 +113,7 @@ class ReadingForm extends React.Component {
 
   prev() {
     let { currentStep } = this.state;
-    currentStep = currentStep <= 1 ? 1 : currentStep - 1;
+    currentStep = currentStep === 1 ? 1 : currentStep - 1;
     this.setState({
       currentStep,
     });
@@ -206,7 +202,8 @@ class ReadingForm extends React.Component {
 }
 
 ReadingForm.propTypes = {
-  history: PropTypes.instanceOf(Object).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.object.isRequired,
 };
 
 export default withRouter(ReadingForm);

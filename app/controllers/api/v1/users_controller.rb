@@ -2,14 +2,7 @@ class Api::V1::UsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    @user = User.new(
-      name: params[:name],
-      email: params[:email],
-      password: params[:password],
-      password_confirmation: params[:password_confirmation],
-      units: params[:units],
-      target: params[:target]
-    )
+    @user = User.new(user_params)
     if @user.save
       render json: {
         code: 200
@@ -30,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
         data: User.all.as_json
       }
     else
-      render json: @users.errors
+      render json: @users.errors.messages
     end
   end
 
@@ -43,9 +36,22 @@ class Api::V1::UsersController < ApplicationController
         data: @users.as_json
       }
     else
-      render json: @users.errors
+      render json: @users.errors.messages
     end
   end
 
   def destroy; end
+
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :name,
+      :email,
+      :password,
+      :password_confirmation,
+      :units,
+      :target
+    )
+  end
 end

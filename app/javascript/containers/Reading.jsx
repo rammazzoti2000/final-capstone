@@ -23,7 +23,7 @@ class Reading extends React.Component {
 }
 
 Reading.propTypes = {
-  match: PropTypes.instanceOf(Object).isRequired,
+  match: PropTypes.object.isRequired,
 };
 
 export default Reading;

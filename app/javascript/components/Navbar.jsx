@@ -7,7 +7,6 @@ import {
   faChartPie,
   faEllipsisH,
 } from '@fortawesome/free-solid-svg-icons';
-import SignoutBtn from './home/Signout';
 
 const Navbar = () => (
   <footer id="sticky-footer" className="bg-grey fixed-bottom">
@@ -32,10 +31,9 @@ const Navbar = () => (
           </a>
         </li>
         <li className="col foot-col nav-item">
-          <a className="nav-link" data-toggle="pill" href="#">
-            <SignoutBtn />
+          <a onClick={() => window.location.href = '/more'} className="nav-link" data-toggle="pill" href="#">
             <FontAwesomeIcon icon={faEllipsisH} className="navIcon" />
-            {/* <p>More</p> */}
+            <p>More</p>
           </a>
         </li>
       </ul>

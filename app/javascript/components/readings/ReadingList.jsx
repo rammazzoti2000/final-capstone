@@ -1,7 +1,9 @@
-/* eslint-disable react/no-unused-state, no-unused-vars */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import {
   CircularProgressbar,
   buildStyles,
@@ -36,11 +38,6 @@ class ReadingList extends React.Component {
       });
   }
 
-  componentWillUnmount() {
-    // fix Warning: Can't perform a React state update on an unmounted component
-    this.setState = (state, callback) => { };
-  }
-
   render() {
     const { readings } = this.state;
     const allReadings = readings.slice(0).reverse().map(reading => (
@@ -52,6 +49,7 @@ class ReadingList extends React.Component {
               styles={buildStyles({
                 textColor: '#4b627a',
                 pathColor: '#94e490',
+                trailColor: '#D6D6D6',
               })}
             />
           </Circle>
@@ -69,7 +67,6 @@ class ReadingList extends React.Component {
             </span>
           </div>
         </div>
-
         <div className="col-3 container graph-valuebox">
           <div className="row graph-value">
             {reading.available}
@@ -77,7 +74,7 @@ class ReadingList extends React.Component {
             <br />
             <span className="read-sym">
               <Link to={`/user/${reading.user_id}/reading/${reading.id}`}>
-                <i className="fas fa-angle-right" />
+                <FontAwesomeIcon icon={faAngleRight} className="read-list" />
               </Link>
             </span>
           </div>

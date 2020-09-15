@@ -1,32 +1,37 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faBed, faLaptop, faCar, faCouch, faUtensils, faUserClock,
+  faBed,
+  faLaptop,
+  faCar,
+  faCouch,
+  faUtensils,
+  faUserClock,
 } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import moment from 'moment';
 import {
-  CircularProgressbarWithChildren, buildStyles,
+  CircularProgressbarWithChildren,
+  buildStyles,
 } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Circle from '../graph/OutputGraph';
 
-class DailyStats extends React.Component {
+export class DailyStats extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      reading:
-        {
-          bedroom: '',
-          living: '',
-          study: '',
-          guest: '',
-          kitchen: '',
-          saved: '',
-          available: '',
-          consumption: '',
-        },
+      reading: {
+        bedroom: '',
+        living: '',
+        study: '',
+        guest: '',
+        kitchen: '',
+        saved: '',
+        available: '',
+        consumption: '',
+      },
       user: {
         units: '',
       },

@@ -30,7 +30,7 @@ const InputGraph = ({ strokeWidth, percentage, display }) => {
         strokeWidth={strokeWidth}
         fillOpacity={0}
         style={{
-          stroke: '#C0C0C0',
+          stroke: '#FFFFFF',
         }}
       />
 
