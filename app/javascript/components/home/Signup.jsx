@@ -59,6 +59,28 @@ class Signup extends React.Component {
     );
   }
 
+  showErrors() {
+    const { errors } = this.state;
+    if (Object.keys(errors).size === 0) {
+      return (null);
+    }
+    return (
+      <div className="bg-danger text-white px-3">
+        {Object.keys(errors).map(key => (
+          <div key={key}>
+            {' '}
+            {key}
+            {' '}
+            <ul>
+              {' '}
+              {errors[key].map(m => <li key={m}>{m}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
   render() {
     const {
       name, email, password, password_confirmation, units, target, success,
@@ -66,6 +88,7 @@ class Signup extends React.Component {
     return (
       <div className="tab-content">
         <div id="new">
+          {this.showErrors()}
           <br />
           <fieldset>
             <div className="form-group">

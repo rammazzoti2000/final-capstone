@@ -1,4 +1,5 @@
-/* eslint-disable react/destructuring-assignment, react/no-unused-state */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -44,6 +45,28 @@ class Signin extends React.Component {
       {
         [e.target.id]: e.target.value,
       },
+    );
+  }
+
+  showErrors() {
+    const { errors } = this.state;
+    if (Object.keys(errors).size === 0) {
+      return (null);
+    }
+    return (
+      <div className="bg-danger text-white px-3">
+        {Object.keys(errors).map(key => (
+          <div key={key}>
+            {' '}
+            {key}
+            {' '}
+            <ul>
+              {' '}
+              {errors[key].map(m => <li key={m}>{m}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
     );
   }
 
@@ -93,6 +116,8 @@ class Signin extends React.Component {
             LOGIN
           </button>
         </div>
+        <br />
+        {this.showErrors()}
       </div>
     );
   }
