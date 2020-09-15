@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
@@ -21,13 +22,12 @@ class ReadingList extends React.Component {
     const userID = JSON.parse(localStorage.getItem('redux')).id;
     const { units } = this.state;
     axios.get(`/api/v1/readings/user/${userID}`, { units })
-      .then((response) => response.data)
-      .then((response) => {
+      .then(response => response.data)
+      .then(response => {
         if (response.code === 200) {
           this.setState({
             readings: response.data,
           });
-          console.log(response.data);
         } else if (response.code === 401) {
           this.setState({
             errors: response.errors,
@@ -38,7 +38,7 @@ class ReadingList extends React.Component {
 
   render() {
     const { readings } = this.state;
-    const allReadings = readings.map((reading) => (
+    const allReadings = readings.map(reading => (
       <div className="row list" key={reading.id}>
         <div className="col-2 container graph">
           <Circle>
@@ -70,7 +70,11 @@ class ReadingList extends React.Component {
             {reading.available}
             <span className="read-units">Units</span>
             <br />
-            <span className="read-sym"><i className="fas fa-angle-right" /></span>
+            <span className="read-sym">
+              <Link to={`/user/${reading.user_id}/reading/${reading.id}`}>
+                <i className="fas fa-angle-right" />
+              </Link>
+            </span>
           </div>
         </div>
       </div>

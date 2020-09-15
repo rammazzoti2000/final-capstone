@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
   namespace :api do
     namespace :v1 do
       resources :readings, only: [:create, :index, :show]
@@ -16,4 +14,5 @@ Rails.application.routes.draw do
   end
   root 'homepage#index'
   get '/*path' => 'homepage#index'
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

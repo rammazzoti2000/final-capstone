@@ -11,6 +11,7 @@ import reducer from '../reducers/sessions';
 
 const store = createStore(
   reducer, compose(persistState()),
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
 );
 
 export default (
@@ -20,7 +21,7 @@ export default (
         <Route exact path="/" component={Home} />
         <Route path="/addreading" component={AddReading} />
         <Route path="/readings" component={Readings} />
-        <Route path="/reading" component={Reading} />
+        <Route path="user/:userId/reading/:id" component={Reading} />
       </Switch>
     </Router>
   </Provider>

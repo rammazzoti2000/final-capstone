@@ -21,7 +21,7 @@ export class SignoutBtn extends Component {
         <button
           type="button"
           className="btn btn-warning"
-          onClick={(e) => this.onSubmit(e)}
+          onClick={e => this.onSubmit(e)}
         >
           Logout
         </button>

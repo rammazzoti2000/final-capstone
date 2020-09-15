@@ -25,8 +25,8 @@ class Signup extends React.Component {
     axios.post('/api/v1/users', {
       name, email, password, password_confirmation, units, target,
     })
-      .then((response) => response.data)
-      .then((response) => {
+      .then(response => response.data)
+      .then(response => {
         if (response.code === 400) {
           this.setState({
             errors: response.errors,
@@ -71,7 +71,7 @@ class Signup extends React.Component {
                   type="text"
                   id="name"
                   value={name}
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
             </div>
@@ -84,7 +84,7 @@ class Signup extends React.Component {
                   type="text"
                   id="email"
                   value={email}
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
             </div>
@@ -97,7 +97,7 @@ class Signup extends React.Component {
                   type="password"
                   id="password"
                   value={password}
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
             </div>
@@ -110,7 +110,7 @@ class Signup extends React.Component {
                   type="password"
                   id="password_confirmation"
                   value={password_confirmation}
-                  onChange={(e) => this.handleChange(e)}
+                  onChange={e => this.handleChange(e)}
                 />
               </div>
             </div>
@@ -119,7 +119,7 @@ class Signup extends React.Component {
                 className="custom-select custom-select-md"
                 id="units"
                 value={units}
-                onChange={(e) => this.handleChange(e)}
+                onChange={e => this.handleChange(e)}
               >
                 <option>Choose monthly units</option>
                 <option value="1800">1800</option>
@@ -134,7 +134,7 @@ class Signup extends React.Component {
                 className="custom-select custom-select-md"
                 id="target"
                 value={target}
-                onChange={(e) => this.handleChange(e)}
+                onChange={e => this.handleChange(e)}
               >
                 <option>Choose month target savings</option>
                 <option value="5">5%</option>
@@ -151,7 +151,7 @@ class Signup extends React.Component {
               <button
                 className="btn btn-primary btn-lg btn-block"
                 type="submit"
-                onClick={(e) => this.onSubmit(e)}
+                onClick={e => this.onSubmit(e)}
               >
                 <i className="fa fa-plus" />
                 {' '}

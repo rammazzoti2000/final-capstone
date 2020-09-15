@@ -3,14 +3,14 @@ class Api::V1::ReadingsController < ApplicationController
   before_action :logged_in?
 
   def index
-    @reading = Reading.all
-    if @reading
+    @readings = Reading.all
+    if @readings
       render json: {
         code: 200,
         data: Reading.all.as_json
       }
     else
-      render json: @reading.errors
+      render json: @readings.errors
     end
   end
 
@@ -29,48 +29,32 @@ class Api::V1::ReadingsController < ApplicationController
   end
 
   def show
-    @readings = Reading.all
-    @readings = Reading.find(params[:id])
-    if @readings
+    @reading = Reading.find(params[:id])
+    if @reading
       render json: {
         code: 200,
-        data: @readings.as_json
+        data: @reading.as_json
       }
     else
-      render json: @readings.errors
+      render json: @reading.errors
     end
   end
 
   def destroy; end
 
-  def find_readings
-    @readings = Reading.all
-    @readings = Reading.find(params[:id])
-    if @readings
-      render json: {
-        code: 200,
-        data: @readings.as_json
-      }
-    else
-      render json: @readings.errors
-    end
-  end
-
   def list_readings_by_user
-    @readings = Reading.all
-    @readings = Reading.where(params[:user_id])
-    if @readings
+    @readinglist = Reading.where(user_id: params[:id])
+    if @readinglist
       render json: {
         code: 200,
-        data: @readings.as_json
+        data: @readinglist.as_json
       }
     else
-      render json: @readings.errors
+      render json: @readinglist.errors
     end
   end
 
   def list_reading
-    @read = Reading.all
     @read = Reading.find_by(user_id: params[:user_id], id: params[:id])
     if @read
       render json: {
@@ -96,9 +80,5 @@ class Api::V1::ReadingsController < ApplicationController
       :available,
       :saved
     )
-  end
-
-  def reading
-    @reading ||= Reading.find_by_user_id_and_id(params[:user_id], params[:id])
   end
 end

@@ -42,7 +42,7 @@ class Home extends React.Component {
                     type="button"
                     value="Signup"
                     className="big btn btn-primary"
-                    onClick={(e) => this.handleClick(e, 'value')}
+                    onClick={e => this.handleClick(e, 'value')}
                   >
                     <i className="fa fa-plus" />
                     {' '}
@@ -52,7 +52,7 @@ class Home extends React.Component {
                     type="button"
                     value="Signin"
                     className="big btn btn-success"
-                    onClick={(e) => this.handleClick(e, 'value')}
+                    onClick={e => this.handleClick(e, 'value')}
                   >
                     <i className="fa fa-user" />
                     {' '}
