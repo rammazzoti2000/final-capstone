@@ -30,7 +30,7 @@ class Home extends React.Component {
     const sector = this.state.section;
     return (
       <div>
-        <Head title="Energy Tracker" />
+        <Head title="Power Tracker" />
         <div className="container text-content sign-in-up">
           <div className="row justify-content-center">
             <div className="col-md-4 col-md-offset-4">
@@ -44,7 +44,6 @@ class Home extends React.Component {
                     className="big btn btn-primary"
                     onClick={e => this.handleClick(e, 'value')}
                   >
-                    <i className="fa fa-plus" />
                     {' '}
                     Create Account
                   </button>

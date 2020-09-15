@@ -186,7 +186,6 @@ class Signup extends React.Component {
                 type="submit"
                 onClick={e => this.onSubmit(e)}
               >
-                <i className="fa fa-plus" />
                 {' '}
                 Create Account
               </button>
@@ -194,7 +193,7 @@ class Signup extends React.Component {
           </div>
         </div>
         <br />
-        {success ? <SweetAlert show={success} title="Energy Tracker" text="Sign up successful! Proceed to login." /> : ''}
+        {success ? <SweetAlert show={success} title="Power Tracker" text="Sign up successful! Proceed to login." /> : ''}
       </div>
     );
   }
