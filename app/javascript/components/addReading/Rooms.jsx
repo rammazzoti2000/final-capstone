@@ -1,4 +1,4 @@
-/* eslint-disable react/require-default-props */
+/* eslint-disable react/require-default-props, react/prop-types */
 /* eslint-disable react/destructuring-assignment, react/button-has-type */
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -160,7 +160,6 @@ Living.propTypes = {
   living: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   currentStep: PropTypes.number.isRequired,
-
 };
 
 export function Kitchen(props) {

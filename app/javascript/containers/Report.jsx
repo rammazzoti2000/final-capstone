@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import Head from '../components/report/Head';
 import Navbar from '../components/Navbar';

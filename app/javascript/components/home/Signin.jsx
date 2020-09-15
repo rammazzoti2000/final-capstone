@@ -1,5 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable react/no-unused-state */
+/* eslint-disable react/destructuring-assignment, react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -107,8 +106,7 @@ const mapDispatchToProps = dispatch => ({
 
 Signin.propTypes = {
   login: PropTypes.func.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  history: PropTypes.object.isRequired,
+  history: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(Signin));

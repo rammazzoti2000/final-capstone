@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+// /* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -8,9 +8,10 @@ import { SIGNEDOUT } from '../../actions';
 
 export class SignoutBtn extends Component {
   onSubmit(e) {
+    const { logout } = this.props;
     e.preventDefault();
     axios.delete('/api/v1/users/sessions')
-      .then(() => this.props.logout());
+      .then(() => logout());
   }
 
   render() {

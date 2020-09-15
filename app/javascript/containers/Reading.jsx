@@ -1,7 +1,7 @@
-/* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/forbid-prop-types, react/prefer-stateless-function */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from '../components/reading/Head';
+import Head from '../components/Head';
 import DayStats from '../components/reading/DayStats';
 import Navbar from '../components/Navbar';
 
@@ -12,10 +12,9 @@ class Reading extends React.Component {
         params: { userId, id },
       },
     } = this.props;
-
     return (
       <div>
-        <Head />
+        <Head title="Day Stats" />
         <DayStats userId={userId} id={id} />
         <Navbar />
       </div>

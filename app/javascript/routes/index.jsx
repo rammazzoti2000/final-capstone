@@ -12,7 +12,6 @@ import Report from '../containers/Report';
 
 const store = createStore(
   reducer, compose(persistState()),
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()),
 );
 
 export default (
@@ -21,7 +20,7 @@ export default (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/addreading" component={AddReading} />
-        <Route path="/readings" component={Readings} />
+        <Route path="/readings" exact component={Readings} />
         <Route path="/report" component={Report} />
         <Route path="user/:userId/reading/:id" component={Reading} />
       </Switch>

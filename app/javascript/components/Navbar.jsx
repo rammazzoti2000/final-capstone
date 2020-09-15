@@ -5,7 +5,7 @@ import {
   faChartBar,
   faChartLine,
   faChartPie,
-  faEllipsisH
+  faEllipsisH,
 } from '@fortawesome/free-solid-svg-icons';
 import SignoutBtn from './home/Signout';
 

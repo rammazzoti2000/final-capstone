@@ -1,7 +1,9 @@
-/* eslint-disable react/no-unused-state */
-/* eslint-disable camelcase */
+/* eslint-disable react/no-unused-state, camelcase */
 import React from 'react';
 import axios from 'axios';
+import SweetAlert from 'sweetalert2-react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Signup extends React.Component {
   constructor(props) {
@@ -14,6 +16,7 @@ class Signup extends React.Component {
       units: '',
       target: '',
       errors: {},
+      success: false,
     };
   }
 
@@ -22,6 +25,7 @@ class Signup extends React.Component {
     const {
       name, email, password, password_confirmation, units, target,
     } = this.state;
+    const { history } = this.props;
     axios.post('/api/v1/users', {
       name, email, password, password_confirmation, units, target,
     })
@@ -40,7 +44,9 @@ class Signup extends React.Component {
             units: '',
             target: '',
             errors: {},
+            success: true,
           });
+          history.push('/readings');
         }
       });
   }
@@ -55,7 +61,7 @@ class Signup extends React.Component {
 
   render() {
     const {
-      name, email, password, password_confirmation, units, target,
+      name, email, password, password_confirmation, units, target, success,
     } = this.state;
     return (
       <div className="tab-content">
@@ -160,9 +166,14 @@ class Signup extends React.Component {
             </div>
           </div>
         </div>
+        {success ? <SweetAlert show={success} title="Energy Tracker" text="Sign up successful! Proceed to login." /> : ''}
       </div>
     );
   }
 }
 
-export default Signup;
+Signup.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default withRouter(Signup);

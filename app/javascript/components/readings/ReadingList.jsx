@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unused-state */
+/* eslint-disable react/no-unused-state, no-unused-vars */
 import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
@@ -34,6 +34,11 @@ class ReadingList extends React.Component {
           });
         }
       });
+  }
+
+  componentWillUnmount() {
+    // fix Warning: Can't perform a React state update on an unmounted component
+    this.setState = (state, callback) => { };
   }
 
   render() {
