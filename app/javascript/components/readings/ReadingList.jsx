@@ -38,7 +38,7 @@ class ReadingList extends React.Component {
 
   render() {
     const { readings } = this.state;
-    const allReadings = readings.map(reading => (
+    const allReadings = readings.slice(0).reverse().map(reading => (
       <div className="row list" key={reading.id}>
         <div className="col-2 container graph">
           <Circle>

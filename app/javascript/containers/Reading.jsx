@@ -1,7 +1,7 @@
 /* eslint-disable react/prefer-stateless-function */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Head from '../components/Head';
+import Head from '../components/reading/Head';
 import DayStats from '../components/reading/DayStats';
 import Navbar from '../components/Navbar';
 

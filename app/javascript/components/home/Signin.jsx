@@ -30,7 +30,6 @@ class Signin extends React.Component {
       .then(response => response.data)
       .then(response => {
         if (response.code === 200) {
-          console.log(response);
           this.props.login(response.user.id, response.user.name);
           this.props.history.push('/addreading');
         } else if (response.code === 400) {

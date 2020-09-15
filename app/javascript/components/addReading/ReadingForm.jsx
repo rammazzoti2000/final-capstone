@@ -2,13 +2,10 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
-  Bedroom,
-  Study,
-  Garage,
-  Living,
-  Kitchen,
-  Guest,
+  Bedroom, Study, Garage, Living, Kitchen, Guest,
 } from './Rooms';
 
 class ReadingForm extends React.Component {
@@ -35,8 +32,8 @@ class ReadingForm extends React.Component {
     const userID = JSON.parse(localStorage.getItem('redux')).id;
     const { units } = this.state;
     axios.get(`/api/v1/users/${userID}`, { units })
-      .then((response) => response.data)
-      .then((response) => {
+      .then(response => response.data)
+      .then(response => {
         if (response.code === 200) {
           this.setState({
             units: response.data.units,
@@ -73,8 +70,8 @@ class ReadingForm extends React.Component {
     axios.post('/api/v1/readings', {
       bedroom, study, garage, living, kitchen, guest, consumption, available, saved,
     })
-      .then((response) => response.data)
-      .then((response) => {
+      .then(response => response.data)
+      .then(response => {
         if (response.code === 400) {
           this.setState({
             errors: response.errors,
@@ -90,6 +87,7 @@ class ReadingForm extends React.Component {
             available: '',
             saved: '',
           });
+          this.props.history.push('/readings');
         }
       });
   }
@@ -126,9 +124,6 @@ class ReadingForm extends React.Component {
     });
   }
 
-  /*
-  * the functions for our button
-  */
   previousButton() {
     const { currentStep } = this.state;
     if (currentStep !== 1) {
@@ -211,4 +206,8 @@ class ReadingForm extends React.Component {
   }
 }
 
-export default ReadingForm;
+ReadingForm.propTypes = {
+  history: PropTypes.instanceOf(Object).isRequired,
+};
+
+export default withRouter(ReadingForm);
