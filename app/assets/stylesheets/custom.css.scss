@@ -33,7 +33,8 @@ nav h1 {
 
 #sticky-footer {
   flex-shrink: none;
-  height: 50px;
+  height: 57px;
+  padding: 5px;
 }
 
 .nav-pills
@@ -408,6 +409,9 @@ input {
   .circle-strong {
     font-Size: 30px;
   }
+  .circular-dimension {
+    max-width: 90% !important;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -473,7 +477,7 @@ input {
     margin: 0;
     .circular-dimension {
       width: 135px;
-      max-width: 80%;
+      max-width: 80% !important;
     }
   }
   .room-card .row .col .dayStat {
@@ -545,10 +549,5 @@ input {
         font-size: 2.7em !important;
       }
     }
-  }
-
-  #sticky-footer {
-    height: 57px;
-    padding: 5px;
   }
 }
