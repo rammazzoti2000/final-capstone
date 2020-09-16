@@ -111,7 +111,12 @@ To have this app on your pc, you need to:
     - You will also see any lint errors in the console.
 
 ## Automated Test
-  > to be added
+  Open the terminal in the project's root directory and run:
+  ```
+  $ bundle exec rspec
+  ```
+  - the following output will be generated
+  ![screenshot](app/assets//images/rspec.png)
 
  ## Walkthrough Video and Deployment (Heroku)
 https://www.loom.com/share/1c5885dd6d9d431fb676e7ff50467dca
