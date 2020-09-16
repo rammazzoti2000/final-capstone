@@ -38,7 +38,6 @@ RSpec.describe 'Users', type: :request do
     end
   end
 
-
   describe 'POST /api/v1/users' do
     let!(:valid_attributes) do
       { user:

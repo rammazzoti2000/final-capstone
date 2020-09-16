@@ -26,7 +26,7 @@ export function Bedroom(props) {
           id="bedroom"
           name="bedroom"
           type="number"
-          placeholder={`Enter bedroom units between 1 to ${quota}`}
+          placeholder={`Enter bedroom units between 1 to ${Math.floor(quota)}`}
           value={props.bedroom}
           onChange={props.handleChange}
         />
@@ -67,7 +67,7 @@ export function Study(props) {
           id="study"
           name="study"
           type="number"
-          placeholder={`Enter study room units between 1 to ${props.quota}`}
+          placeholder={`Enter study room units between 1 to ${Math.floor(props.quota)}`}
           value={props.study}
           onChange={props.handleChange}
         />
@@ -107,7 +107,7 @@ export function Garage(props) {
           id="garage"
           name="garage"
           type="number"
-          placeholder={`Enter garage units between 1 to ${props.quota}`}
+          placeholder={`Enter garage units between 1 to ${Math.floor(props.quota)}`}
           value={props.garage}
           onChange={props.handleChange}
         />
@@ -147,7 +147,7 @@ export function Living(props) {
           id="living"
           name="living"
           type="number"
-          placeholder={`Enter living room units between 1 to ${props.quota}`}
+          placeholder={`Enter living room units between 1 to ${Math.floor(props.quota)}`}
           value={props.living}
           onChange={props.handleChange}
         />
@@ -184,7 +184,7 @@ export function Kitchen(props) {
           id="kitchen"
           name="kitchen"
           type="number"
-          placeholder={`Enter kitchen units between 1 to ${props.quota}`}
+          placeholder={`Enter kitchen units between 1 to ${Math.floor(props.quota)}`}
           value={props.kitchen}
           onChange={props.handleChange}
         />
@@ -224,7 +224,7 @@ export function Guest(props) {
           id="guest"
           name="guest"
           type="number"
-          placeholder={`Enter guest room units between 1 to ${props.quota}`}
+          placeholder={`Enter guest room units between 1 to ${Math.floor(props.quota)}`}
           value={props.guest}
           onChange={props.handleChange}
         />
