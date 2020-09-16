@@ -202,11 +202,11 @@ input {
 .circular-box {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
 .circular-box .circular-dimension {
-  max-width: 40%;
+  max-width: 87%;
+  width: 240px;
 }
 
 .graph-box {
@@ -409,8 +409,12 @@ input {
   .circle-strong {
     font-Size: 30px;
   }
+  .circular-box {
+    margin: 0;
+  }
   .circular-dimension {
     max-width: 90% !important;
+    width: 135px !important;
   }
 }
 
@@ -495,8 +499,11 @@ input {
 
   .readlist {
     height: auto;
+    width: 90%;
     .list {
       background-color: #F3F4F6;
+      border-bottom: 2px solid lightslategrey;
+      padding-bottom: 17%;
       .graph,
       .col {
         padding-top: 14px;
