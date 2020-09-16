@@ -10,7 +10,7 @@ body {
 }
 
 .bg-blue {
-  background-color: #42B5E8;
+  background-color: #42b5e8;
 }
 
 .bg-grey {
@@ -36,22 +36,24 @@ nav h1 {
   padding: 5px;
 }
 
-.nav-pills
-.nav-link.active,
-.nav-pills
-.show > .nav-link {
-	color: #fff;
-	background-color: #42B5E8 !important;
+.nav-pills .nav-link {
+  border-radius: 0 !important;
+  color: #acafb4;
+}
+
+.nav-link {
+  padding: 0 !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #42b5e8 !important;
 }
 
 .tablist .col {
   padding-left: unset;
   padding-right: unset;
-}
-
-.nav-pills .nav-link {
-  border-radius: 0 !important;
-  color: #acafb4;
 }
 
 .nav-pills .nav-link .navIcon {
@@ -64,12 +66,15 @@ nav h1 {
   line-height: 17px;
 }
 
-.nav-link {
-  padding: 0 !important;
-}
-
 .sign-in-up .left-inner-addon {
   position: relative;
+}
+
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid #aaa;
 }
 
 .sign-in-up .left-inner-addon input {
@@ -92,7 +97,7 @@ nav h1 {
 
 .sign-in-up .right-inner-addon i {
   position: absolute;
-  right: 0px;
+  right: 0;
   padding: 12px;
   pointer-events: none;
 }
@@ -107,16 +112,20 @@ nav h1 {
   margin: 0;
   font-weight: bold;
 }
+
 .btn-danger, .btn-danger:hover {
-  background-color: #22C65B;
-  border-color: #22C65B;
+  background-color: #22c65b;
+  border-color: #22c65b;
 }
+
 .btn-primary, .btn-primary:hover {
-  background-color: #42B5E8;
-  border-color: #42B5E8;
+  background-color: #42b5e8;
+  border-color: #42b5e8;
 }
-  input[type="text"], input[type="password"], .btn {
-  border-radius: 0px;
+
+input[type="text"], input[type="password"],
+.btn {
+  border-radius: 0;
 }
 
 #regForm {
@@ -129,13 +138,6 @@ nav h1 {
   min-width: 300px;
 }
 
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  border: 1px solid #aaaaaa;
-}
-
 .btn-box {
   background-color: white;
 }
@@ -144,7 +146,7 @@ input {
   background-color: #a9dc95;
   border: none;
   border-radius: 3px;
-  color: #ffffff;
+  color: #fff;
   font-size: 17px;
   cursor: pointer;
   margin: 0.25em 0 0.25em 0;
@@ -161,7 +163,7 @@ input {
 
 #prevBtn {
   background-color: white;
-  color: #bbbbbb;
+  color: #bbb;
   margin-left: 0.25em;
 }
 
@@ -173,15 +175,14 @@ input {
 
 .reading-header h4 {
   margin: auto;
-  padding: auto;
 }
 
 .graph-content {
-  margin: 10% 0 10% 0;
+  margin: 10% 0;
 }
 
 .reading-input {
-  margin: 5% 0 5% 0;
+  margin: 5% 0;
 }
 
 .full-width-row {
@@ -193,7 +194,7 @@ input {
   height: 100vh;
   margin: auto;
   margin-bottom: 2em;
-  padding: 0 0px 40px 0px;
+  padding: 0 0 40px;
   width: 70%;
   min-width: 300px;
 }
@@ -218,17 +219,17 @@ input {
 }
 
 .room-card {
-  margin: 10px 10px 10px 10px;
+  margin: 10px;
 }
 
 .room-card .row .col {
   background-color: white;
-  padding: 10px 10px 10px 10px;
+  padding: 10px;
   text-align: center;
 }
 
 .room-card .col .dayStat {
-  color: #42B5E8;
+  color: #42b5e8;
 }
 
 .readlist {
@@ -237,7 +238,7 @@ input {
   margin: auto;
   margin-top: 35px;
   margin-bottom: 2em;
-  padding: 0 0 40px 0;
+  padding: 0 0 40px;
   width: 70%;
   min-width: 300px;
 }
@@ -251,7 +252,6 @@ input {
 
 .list h4 {
   margin: auto;
-  padding: auto;
 }
 
 .circular-list {
@@ -275,11 +275,11 @@ input {
 }
 
 .graph {
-  padding: 4px 0 4px 0;
+  padding: 4px 0;
 }
 
 .graph-valuebox {
-  padding: 10px 0 10px 0;
+  padding: 10px 0;
 }
 
 .graph-value {
@@ -311,14 +311,12 @@ input {
 
 .circle-text {
   color: #576d83;
-  font-Size: 20px;
-  margin-Top: -5;
+  font-size: 20px;
   text-align: center;
 }
 
 .circle-strong {
-  font-Size: 45px;
-  margin-Top: -5;
+  font-size: 45px;
 }
 
 .more {
@@ -327,7 +325,7 @@ input {
   margin: auto;
   margin-top: 22px;
   margin-bottom: 2em;
-  padding: 0 0 40px 0;
+  padding: 0 0 40px;
   width: 70%;
   min-width: 300px;
 }
@@ -335,13 +333,13 @@ input {
 .more-list {
   background-color: white;
   height: 75px;
-  margin: 10px 0 0 0 !important;
+  margin: 10px 0 0 !important;
   text-align: center;
 }
 
 .img-circle {
   border-radius: 50%;
-  border: #42B5E8 2px solid;
+  border: #42b5e8 2px solid;
   float: right;
   margin-right: 10px;
   margin-top: 12.5px;
@@ -358,7 +356,7 @@ input {
 
 .profile-content {
   text-align: left;
-  margin: auto 0 auto 0;
+  margin: auto 0;
 }
 
 .profile-name {
@@ -369,13 +367,13 @@ input {
   background-color: #f3f4f6d3;
   border-top: 1px #e4e5e6d3 solid;
   height: 50px;
-  margin: 1px 0 0 0 !important;
+  margin: 1px 0 0 !important;
 }
 
 .more-icons {
   color: #576d83;
   font-size: 1.5em;
-  margin: auto 0 auto 0;
+  margin: auto 0;
   text-align: end;
 }
 
@@ -385,7 +383,7 @@ input {
 
 .more-texts {
   text-align: left;
-  margin: auto 0 auto 0;
+  margin: auto 0;
 }
 
 .more-text {
@@ -403,14 +401,17 @@ input {
 
 @media screen and (max-width: 1280px) {
   .circle-text {
-    font-Size: 15px;
+    font-size: 15px;
   }
+
   .circle-strong {
-    font-Size: 30px;
+    font-size: 30px;
   }
+
   .circular-box {
     margin: 0;
   }
+
   .circular-dimension {
     max-width: 90% !important;
     width: 135px !important;
@@ -418,6 +419,22 @@ input {
 }
 
 @media screen and (max-width: 720px) {
+  .rows {
+    width: 90%;
+    margin: auto;
+    .room-card {
+      margin: 10px 5px;
+      .room-units {
+        h4 {
+          font-size: 17px !important;
+        }
+      }
+      .dayStat {
+        font-size: 2.7em !important;
+      }
+    }
+  }
+
   #regForm,
   .daily-stats,
   .more,
@@ -430,12 +447,14 @@ input {
     width: 100%;
     height: auto;
     .reading-header {
-      background-color: #F3F4F6;
+      background-color: #f3f4f6;
+
       h4 {
         font-size: 1.4rem;
         margin: 10px 0;
       }
     }
+
     .graph-content {
       display: flex;
       justify-content: center;
@@ -460,15 +479,17 @@ input {
     }
 
     .btn-box {
-      background-color: #F3F4F6;
+      background-color: #f3f4f6;
       display: flex;
       flex-flow: row nowrap;
       #prevBtn {
         padding: 10px;
       }
+
       #nextBtn {
         padding: 10px 22px;
       }
+
       #prevBtn,
       #nextBtn {
         margin: 10px;
@@ -478,46 +499,56 @@ input {
 
   .circular-box {
     margin: 0;
+
     .circular-dimension {
       width: 135px;
       max-width: 80% !important;
     }
   }
+
   .room-card .row .col .dayStat {
     font-size: 3em;
   }
+
   .graph {
     padding-right: 0 !important;
   }
+
   .circle-text {
-    font-Size: 10px;
+    font-size: 10px;
   }
+
   .circle-strong {
-    font-Size: 23px;
+    font-size: 23px;
   }
 
   .readlist {
     height: auto;
     width: 90%;
+
     .list {
-      background-color: #F3F4F6;
+      background-color: #f3f4f6;
       border-bottom: 2px solid lightslategrey;
       padding-bottom: 4.5rem;
+
       .graph,
       .col {
         padding-top: 14px;
       }
+
       .graph-value {
         display: flex;
         flex-flow: row nowrap;
         justify-content: flex-end;
         align-items: center;
+
         .read-units {
           padding: 11px 4px 5px 1px;
         }
+
         .read-sym {
           font-size: 2rem;
-          padding: 0px 10px 0px 12px;
+          padding: 0 10px 0 12px;
         }
       }
     }
@@ -526,33 +557,21 @@ input {
   .graph-box {
     margin: 0 !important;
     padding: 0 !important;
+
     .row {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: baseline;
       margin: 0;
+
       .col {
         padding: 0 0 10px;
         margin: -7px;
+
         div {
           margin-bottom: 5px !important;
         }
-      }
-    }
-  }
-  .rows {
-    width: 90%;
-    margin: auto;
-    .room-card {
-      margin: 10px 5px;
-      .room-units {
-        h4 {
-          font-size: 17px !important;
-        }
-      }
-      .dayStat {
-        font-size: 2.7em !important;
       }
     }
   }
