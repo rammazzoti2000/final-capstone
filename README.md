@@ -114,7 +114,7 @@ To have this app on your pc, you need to:
   > to be added
 
  ## Walkthrough Video and Deployment (Heroku)
-https://www.loom.com/share/5860127540704697aba0d3dc360b97bd
+https://www.loom.com/share/1c5885dd6d9d431fb676e7ff50467dca
 ##
 
 ## Live Demo & Deployment
