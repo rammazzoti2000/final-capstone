@@ -120,7 +120,7 @@ https://www.loom.com/share/5860127540704697aba0d3dc360b97bd
 ## Live Demo & Deployment
 The project has been deployed with [Heroku](https://www.heroku.com/)
 
-[Heroku Live Demo Link](https://final-capstonejx.herokuapp.com//) :point_left:
+[Heroku Live Demo Link](https://final-capstonejx.herokuapp.com/) :point_left:
 
 <!-- CONTACT -->
 ## Contributors
