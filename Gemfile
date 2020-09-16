@@ -21,8 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-gem 'font-awesome-rails'
 gem 'faker'
+gem 'font-awesome-rails'
 gem 'rubocop'
 
 # Use Active Storage variant
@@ -51,8 +51,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
-  gem 'webdrivers'
   gem 'database_cleaner'
+  gem 'webdrivers'
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
 end

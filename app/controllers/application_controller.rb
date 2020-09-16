@@ -11,10 +11,6 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    !!session[:user_id]
-  end
-
-  def logged_in?
     render json: { code: 401 } unless current_user
   end
 end

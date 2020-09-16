@@ -36,13 +36,13 @@ nav h1 {
   padding: 5px;
 }
 
+.nav-link {
+  padding: 0 !important;
+}
+
 .nav-pills .nav-link {
   border-radius: 0 !important;
   color: #acafb4;
-}
-
-.nav-link {
-  padding: 0 !important;
 }
 
 .nav-pills .nav-link.active,
@@ -113,12 +113,18 @@ input {
   font-weight: bold;
 }
 
-.btn-danger, .btn-danger:hover {
+.btn-danger {
+  background-color: red;
+}
+
+.btn-danger,
+.btn-danger:hover {
   background-color: #22c65b;
   border-color: #22c65b;
 }
 
-.btn-primary, .btn-primary:hover {
+.btn-primary,
+.btn-primary:hover {
   background-color: #42b5e8;
   border-color: #42b5e8;
 }
@@ -391,10 +397,6 @@ input[type="text"], input[type="password"],
   font-weight: 600;
 }
 
-.btn-danger {
-  background-color: red;
-}
-
 .btn-danger:hover {
   background-color: rgb(100, 0, 0);
 }
@@ -422,13 +424,16 @@ input[type="text"], input[type="password"],
   .rows {
     width: 90%;
     margin: auto;
+
     .room-card {
       margin: 10px 5px;
+
       .room-units {
         h4 {
           font-size: 17px !important;
         }
       }
+
       .dayStat {
         font-size: 2.7em !important;
       }
@@ -446,6 +451,7 @@ input[type="text"], input[type="password"],
     padding: 20px;
     width: 100%;
     height: auto;
+
     .reading-header {
       background-color: #f3f4f6;
 
@@ -482,6 +488,7 @@ input[type="text"], input[type="password"],
       background-color: #f3f4f6;
       display: flex;
       flex-flow: row nowrap;
+
       #prevBtn {
         padding: 10px;
       }
