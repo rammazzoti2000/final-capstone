@@ -202,7 +202,6 @@ class ReadingForm extends React.Component {
 }
 
 ReadingForm.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
   history: PropTypes.instanceOf(Object).isRequired,
 };
 

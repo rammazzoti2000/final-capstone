@@ -5,9 +5,9 @@ import Navbar from '../components/Navbar';
 import ReadingList from '../components/readings/ReadingList';
 
 export default () => (
-  <section>
+  <main>
     <Head title="Track.It" />
     <ReadingList />
     <Navbar />
-  </section>
+  </main>
 );

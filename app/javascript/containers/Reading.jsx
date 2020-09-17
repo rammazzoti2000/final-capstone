@@ -13,7 +13,7 @@ class Reading extends React.Component {
       },
     } = this.props;
     return (
-      <div>
+      <div className="maxinova">
         <Head title="Day Stats" />
         <DayStats userId={userId} id={id} />
         <Navbar />

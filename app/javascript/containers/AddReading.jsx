@@ -5,9 +5,9 @@ import Navbar from '../components/Navbar';
 import ReadingForm from '../components/addReading/ReadingForm';
 
 export default () => (
-  <section className="maxinova">
+  <main className="maxinova">
     <Head title="Add Readings" />
     <ReadingForm />
     <Navbar />
-  </section>
+  </main>
 );

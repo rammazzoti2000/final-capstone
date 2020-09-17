@@ -64,12 +64,12 @@ export class DailyStats extends React.Component {
     const availablePC = Math.floor(((Number(reading.available)) / quota) * 100);
     return (
       <>
-        <div>
+        <main>
           <div className="daily-stats" index={reading.id}>
-            <div className="row reading-header">
+            <section className="row reading-header">
               <h4>{moment(reading.created_at).format('DD MMM YYYY')}</h4>
-            </div>
-            <div className="row graph-box">
+            </section>
+            <section className="row graph-box">
               <div className="row">
                 <div className="col">
                   <Circle>
@@ -147,8 +147,8 @@ export class DailyStats extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="rows">
+            </section>
+            <section className="rows">
               <div className="row">
                 <div className="col room-card">
                   <div className="row">
@@ -245,9 +245,9 @@ export class DailyStats extends React.Component {
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
-        </div>
+        </main>
       </>
     );
   }

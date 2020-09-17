@@ -12,7 +12,7 @@ import SignoutBtn from '../home/Signout';
 const Settings = () => {
   const userName = JSON.parse(localStorage.getItem('redux')).name;
   return (
-    <div className="more">
+    <section className="more">
       <div className="row more-list">
         <div className="col-4 container">
           <div className="img-circle hor">
@@ -66,7 +66,7 @@ const Settings = () => {
       <div className="row more-items">
         <SignoutBtn />
       </div>
-    </div>
+    </section>
   );
 };
 
