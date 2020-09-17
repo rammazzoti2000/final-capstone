@@ -5,9 +5,9 @@ import Settings from '../components/profile/Settings';
 import Navbar from '../components/Navbar';
 
 export default () => (
-  <div>
+  <section>
     <Head title="More" />
     <Settings />
     <Navbar />
-  </div>
+  </section>
 );

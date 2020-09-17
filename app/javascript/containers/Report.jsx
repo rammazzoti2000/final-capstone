@@ -4,8 +4,8 @@ import Head from '../components/Head';
 import Navbar from '../components/Navbar';
 
 export default () => (
-  <div>
+  <section>
     <Head title="Report" />
     <Navbar />
-  </div>
+  </section>
 );

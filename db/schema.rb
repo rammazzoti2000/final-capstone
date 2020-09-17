@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_13_160936) do
+ActiveRecord::Schema.define(version: 2020_09_17_125542) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "add_readings", force: :cascade do |t|
+    t.integer "quota"
+    t.integer "units"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_add_readings_on_user_id"
+  end
 
   create_table "readings", force: :cascade do |t|
     t.integer "bedroom"
@@ -41,5 +50,6 @@ ActiveRecord::Schema.define(version: 2020_09_13_160936) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "add_readings", "users"
   add_foreign_key "readings", "users"
 end
