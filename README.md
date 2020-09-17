@@ -103,7 +103,7 @@ To have this app on your pc, you need to:
 * In the project directory, you can run:
 
   - `$ npm install && bundle install` - installs all the dependencies required by the project
-  - `$ rails db:migrate` to migrate the tables and build the database.
+  - `$ rake db:create && rails db:migrate` to create and migrate the tables and build the database.
 
   - `$ rails server` - will run the local server.
     - Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
