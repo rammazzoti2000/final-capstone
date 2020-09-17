@@ -95,9 +95,9 @@ export function Garage(props) {
   const units = !props.garage ? '' : (Number(props.garage) / Number(props.quota)) * 100;
   return (
     <>
-      <div className="row justify-content-center reading-header">
+      <header className="row justify-content-center reading-header">
         <h4>Take your Garage Reading</h4>
-      </div>
+      </header>
       <div className="row justify-content-center">
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={units} display={props.garage} />
@@ -136,9 +136,9 @@ export function Living(props) {
   const units = !props.living ? '' : (Number(props.living) / Number(props.quota)) * 100;
   return (
     <>
-      <div className="row justify-content-center reading-header">
+      <header className="row justify-content-center reading-header">
         <h4>Take your Living Room Reading</h4>
-      </div>
+      </header>
       <div className="row justify-content-center">
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={units} display={props.living} />
@@ -154,6 +154,7 @@ export function Living(props) {
           value={props.living}
           onChange={props.handleChange}
           required
+
         />
       </div>
     </>
@@ -173,9 +174,9 @@ export function Kitchen(props) {
   const units = !props.kitchen ? '' : (Number(props.kitchen) / Number(props.quota)) * 100;
   return (
     <>
-      <div className="row justify-content-center reading-header">
+      <header className="row justify-content-center reading-header">
         <h4>Take your Kitchen Reading</h4>
-      </div>
+      </header>
       <div className="row justify-content-center">
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={units} display={props.kitchen} />
@@ -214,9 +215,9 @@ export function Guest(props) {
   const units = !props.guest ? '' : (Number(props.guest) / Number(props.quota)) * 100;
   return (
     <>
-      <div className="row justify-content-center reading-header">
+      <heeader className="row justify-content-center reading-header">
         <h4>Take your Guest Room Reading</h4>
-      </div>
+      </heeader>
       <div className="row justify-content-center">
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={units} display={props.guest} />
