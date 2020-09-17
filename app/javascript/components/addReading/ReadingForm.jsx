@@ -76,7 +76,9 @@ class ReadingForm extends React.Component {
     + Number(living)
     + Number(kitchen)
     + Number(guest);
-    //
+    const available = (units / 30) - consumption;
+    const saved = Math.floor(100 - (100 * (consumption / (units / 30))));
+    axios.post('/api/v1/readings', {
       bedroom, study, garage, living, kitchen, guest, consumption, available, saved,
     })
       .then(response => response.data)
@@ -158,36 +160,42 @@ class ReadingForm extends React.Component {
             quota={this.state.quota}
             handleChange={this.handleChange}
             bedroom={this.state.bedroom}
+            units={Math.floor(100 - (100 * (consumption / (units / 30))));}
           />
           <Study
             currentStep={this.state.currentStep}
             quota={this.state.quota}
             handleChange={this.handleChange}
             study={this.state.study}
+            units={Math.floor(100 - (100 * (consumption / (units / 30))));}
           />
           <Garage
             currentStep={this.state.currentStep}
             quota={this.state.quota}
             handleChange={this.handleChange}
             garage={this.state.garage}
+            units={Math.floor(100 - (100 * (consumption / (units / 30))));}
           />
           <Living
             currentStep={this.state.currentStep}
             quota={this.state.quota}
             handleChange={this.handleChange}
             living={this.state.living}
+            units={Math.floor(100 - (100 * (consumption / (units / 30))));}
           />
           <Kitchen
             currentStep={this.state.currentStep}
             quota={this.state.quota}
             handleChange={this.handleChange}
             kitchen={this.state.kitchen}
+            units={Math.floor(100 - (100 * (consumption / (units / 30))));}
           />
           <Guest
             currentStep={this.state.currentStep}
             quota={this.state.quota}
             handleChange={this.handleChange}
             guest={this.state.guest}
+            units={Math.floor(100 - (100 * (consumption / (units / 30))));}
           />
           <div className="row justify-content-center btn-box">
             {this.previousButton()}
