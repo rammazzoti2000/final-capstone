@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :readings, only: [:create, :index, :show]
-      resources :addReadings, only: [:create]
+      resources :addreadings, only: [:create]
       get '/readings/user/:id', to: 'readings#list_readings_by_user'
       get '/user/:user_id/reading/:id', to: 'readings#list_reading'
       resources :users, only: [:create, :index]
