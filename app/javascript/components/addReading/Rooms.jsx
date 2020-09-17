@@ -215,9 +215,9 @@ export function Guest(props) {
   const units = !props.guest ? '' : (Number(props.guest) / Number(props.quota)) * 100;
   return (
     <>
-      <heeader className="row justify-content-center reading-header">
+      <header className="row justify-content-center reading-header">
         <h4>Take your Guest Room Reading</h4>
-      </heeader>
+      </header>
       <div className="row justify-content-center">
         <div className="graph-content">
           <InputGraph strokeWidth={2} percentage={units} display={props.guest} />
