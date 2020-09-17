@@ -1,8 +1,11 @@
-class AddReadingsController < ApplicationController
+class Api::V1::AddReadingsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  before_action :logged_in?
+
   def index; end
 
   def create
-    @add_reading = current_user.build(reading_params)
+    @add_reading = current_user.add_readings.build(add_reading_params)
     if @add_reading.save
       render json: {
         code: 200
@@ -19,7 +22,7 @@ class AddReadingsController < ApplicationController
 
   private
 
-  def reading_params
+  def add_reading_params
     params.require(:reading).permit(:quota, :units)
   end
 end
