@@ -29,6 +29,7 @@ export function Bedroom(props) {
           placeholder={`Enter bedroom units between 1 to ${Math.floor(quota)}`}
           value={props.bedroom}
           onChange={props.handleChange}
+          required
         />
       </div>
     </>
@@ -70,6 +71,7 @@ export function Study(props) {
           placeholder={`Enter study room units between 1 to ${Math.floor(props.quota)}`}
           value={props.study}
           onChange={props.handleChange}
+          required
         />
       </div>
     </>
@@ -110,6 +112,7 @@ export function Garage(props) {
           placeholder={`Enter garage units between 1 to ${Math.floor(props.quota)}`}
           value={props.garage}
           onChange={props.handleChange}
+          required
         />
       </div>
     </>
@@ -150,6 +153,7 @@ export function Living(props) {
           placeholder={`Enter living room units between 1 to ${Math.floor(props.quota)}`}
           value={props.living}
           onChange={props.handleChange}
+          required
         />
       </div>
     </>
@@ -186,6 +190,7 @@ export function Kitchen(props) {
           placeholder={`Enter kitchen units between 1 to ${Math.floor(props.quota)}`}
           value={props.kitchen}
           onChange={props.handleChange}
+          required
         />
       </div>
     </>
@@ -226,6 +231,7 @@ export function Guest(props) {
           placeholder={`Enter guest room units between 1 to ${Math.floor(props.quota)}`}
           value={props.guest}
           onChange={props.handleChange}
+          required
         />
       </div>
       <button className="btn btn-success btn-block">Submit</button>
