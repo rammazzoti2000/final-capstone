@@ -29,9 +29,9 @@ class Home extends React.Component {
   render() {
     const sector = this.state.section;
     return (
-      <div>
+      <main>
         <Head title="Power Tracker" />
-        <div className="container text-content sign-in-up">
+        <section className="container text-content sign-in-up">
           <div className="row justify-content-center">
             <div className="col-md-4 col-md-offset-4">
               <br />
@@ -63,8 +63,8 @@ class Home extends React.Component {
               {sector}
             </div>
           </div>
-        </div>
-      </div>
+        </section>
+      </main>
     );
   }
 }
