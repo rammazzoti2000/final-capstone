@@ -59,12 +59,12 @@ The requirements can be found [here](https://www.notion.so/Final-Capstone-Projec
 
 The main functionality of the app is to track domestic power consumption. It can register measurements across rooms in the house.
 The main rooms are bedroom, study, garage, living, kitchen, and guests.
-Each measurement taken to these rooms will be then registered in a separate page with additional timestamp. The measurement will be accessible and will represent useful information on total power consuming, the available units left and what has been saved in percentages.
+Each measurement taken of these rooms will be then registered in a separate page with additional timestamp. The measurement will be accessible and will represent useful information on total power consuming, the available units left and what has been saved in percentages.
 
 The main tasks the app can do for now are:
-- The user is required to register with name, email, password, monthly units available (i.e. 1800, 2100, 2400, 2700, 3000). Selected units will be divided by numbers of days in a month to derive daily quota, and also and the target saving for power consumption (i.e. 5%, 10%, 15%, 20%, 25%) which will be calculated against total month consumption to see if target is met.
+- The user is required to register with name, email, password, monthly units available (i.e. 1800, 2100, 2400, 2700, 3000). Selected units will be divided by number of days in a month to derive daily quota, and also the target saving for power consumption (i.e. 5%, 10%, 15%, 20%, 25%) which will be calculated against total month consumption to see if target is met.
 - The user can log in by typing the mail and password
-- The user will be able to manually register for each room how much power is planning to consume
+- The user will be able to manually register for each room how much power is planning to consume.
 - The user can then access the page with measurements and check the progress of it within time.
 - Each measurement has a dedicated page with daily measurements of each room.
 
